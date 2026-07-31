@@ -26,6 +26,7 @@ Each report links to its underlying raw research in [`raw/`](raw/). Recurring cr
 | TSM | TSMC (Taiwan Semiconductor) | [TSM-tsmc-analysis.md](TSM-tsmc-analysis.md) | [raw](raw/tsmc-tsm-stock-raw-v3.md) | 2026-07-29 |
 | ASML | ASML Holding | [ASML-asml-analysis.md](ASML-asml-analysis.md) | [raw](raw/asml-stock-raw-v3.md) | 2026-07-29 |
 | MRVL | Marvell Technology | [MRVL-marvell-analysis.md](MRVL-marvell-analysis.md) | [raw](raw/marvell-mrvl-stock-raw-v3.md) | 2026-07-29 |
+| AMD | Advanced Micro Devices | [AMD-amd-analysis.md](AMD-amd-analysis.md) | [raw](raw/amd-stock-raw-v3.md) | 2026-07-30 |
 
 ### Software & Cloud
 
