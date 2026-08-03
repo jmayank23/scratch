@@ -46,6 +46,12 @@ Each report links to its underlying raw research in [`raw/`](raw/). Recurring cr
 |--------|---------|--------|----------|----------------|
 | AAPL | Apple | [AAPL-apple-analysis.md](AAPL-apple-analysis.md) | [raw](raw/apple-aapl-stock-raw-v3.md) | 2026-07-29 |
 
+### Banks & Financial Services
+
+| Ticker | Company | Report | Raw data | Analyzed (CST) |
+|--------|---------|--------|----------|----------------|
+| JPM | JPMorgan Chase | [JPM-jpmorgan-analysis.md](JPM-jpmorgan-analysis.md) | [raw](raw/jpmorgan-chase-jpm-stock-raw-v3.md) | 2026-08-03 |
+
 ## Adding a new report
 
 1. Run the skill for the ticker (see the workflow above); it writes a `raw/<company>-<ticker>-stock-raw-v3.md` file.
