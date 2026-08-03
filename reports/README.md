@@ -51,6 +51,7 @@ Each report links to its underlying raw research in [`raw/`](raw/). Recurring cr
 | Ticker | Company | Report | Raw data | Analyzed (CST) |
 |--------|---------|--------|----------|----------------|
 | JPM | JPMorgan Chase | [JPM-jpmorgan-analysis.md](JPM-jpmorgan-analysis.md) | [raw](raw/jpmorgan-chase-jpm-stock-raw-v3.md) | 2026-08-03 |
+| AXP | American Express | [AXP-american-express-analysis.md](AXP-american-express-analysis.md) | [raw](raw/american-express-axp-stock-raw-v3.md) | 2026-08-03 |
 
 ## Adding a new report
 
