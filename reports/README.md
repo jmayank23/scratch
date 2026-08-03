@@ -53,6 +53,14 @@ Each report links to its underlying raw research in [`raw/`](raw/). Recurring cr
 | JPM | JPMorgan Chase | [JPM-jpmorgan-analysis.md](JPM-jpmorgan-analysis.md) | [raw](raw/jpmorgan-chase-jpm-stock-raw-v3.md) | 2026-08-03 |
 | AXP | American Express | [AXP-american-express-analysis.md](AXP-american-express-analysis.md) | [raw](raw/american-express-axp-stock-raw-v3.md) | 2026-08-03 |
 
+### IPOs & New Listings
+
+_Pre-IPO / newly listed names. These have no trading history or earnings yet, so reports lean on filings/announcements plus early community sentiment rather than financial results._
+
+| Ticker | Company | Report | Raw data | Analyzed (CST) |
+|--------|---------|--------|----------|----------------|
+| RVII | Robinhood Ventures Fund II | [RVII-robinhood-ventures-ii-analysis.md](RVII-robinhood-ventures-ii-analysis.md) | [raw](raw/robinhood-ventures-fund-ii-rvii-ipo-raw-v3.md) | 2026-08-03 |
+
 ## Adding a new report
 
 1. Run the skill for the ticker (see the workflow above); it writes a `raw/<company>-<ticker>-stock-raw-v3.md` file.
