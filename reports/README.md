@@ -17,6 +17,10 @@ Each report links to its underlying raw research in [`raw/`](raw/). Recurring cr
 
 **Coverage note:** runs to date used the free keyless sources (Reddit, YouTube, Hacker News, Polymarket) plus web search. X/Twitter, TikTok, and Instagram require credentials not present in this environment, so coverage is weighted toward the sources above.
 
+## Analysis
+
+- [**Can corrections be predicted? A backtest**](backtests/) - tests whether the timing and depth of drawdowns are predictable across the 10 charted tickers (~20 years of daily data), and backtests three rules-based strategies vs buy-and-hold. Short answer: timing is essentially unpredictable, depth is only weakly so, and trend/stop rules cut drawdowns but usually cost return. Exploratory and in-sample - see its caveats.
+
 ## Reports by category
 
 ### Semiconductors
