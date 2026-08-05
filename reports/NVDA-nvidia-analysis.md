@@ -36,3 +36,11 @@ I'm now an expert on Nvidia (NVDA) for the last 30 days. Some things you could a
 - What would China's limited H200 approvals actually cost Nvidia in data-center revenue?
 
 I have all the links to the 17 Reddit threads, 7 YouTube videos, 14 HN stories, and 7 Polymarket markets I pulled from. Just ask.
+
+---
+
+### 5-Year Price
+
+▲ **+973% over 5 years** - adjusted close rose from $20.57 to $220.63. Source: Yahoo Finance (daily adjusted close, ~5 years through Aug 2026).
+
+![NVDA 5-year adjusted-close price chart](charts/NVDA-5y.png)

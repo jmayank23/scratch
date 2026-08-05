@@ -36,3 +36,11 @@ I'm now an expert on AMD for the last 30 days. Some things you could ask:
 - Was the late-July selloff-then-rebound about macro/rates or AI-demand doubts?
 
 I have all the links to the 15 Reddit threads, 6 YouTube videos, 13 HN stories, and 2 Polymarket markets I pulled from. Just ask.
+
+---
+
+### 5-Year Price
+
+▲ **+335% over 5 years** - adjusted close rose from $112.35 to $488.58. Source: Yahoo Finance (daily adjusted close, ~5 years through Aug 2026).
+
+![AMD 5-year adjusted-close price chart](charts/AMD-5y.png)

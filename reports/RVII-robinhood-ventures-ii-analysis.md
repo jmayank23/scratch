@@ -35,3 +35,9 @@ I'm now up to speed on the Robinhood Ventures Fund II (RVII) IPO. Some things yo
 - Does the "flip, don't hold" pattern on Robinhood IPO Access deals apply here?
 
 I have all the links to the Reddit threads I pulled from, plus the filing/announcement sources. Just ask - and note community coverage is thin because the roadshow only just began.
+
+---
+
+### 5-Year Price
+
+_Not applicable - RVII has not begun trading (IPO expected on or around Aug 13, 2026), so there is no price history to chart. A 5-year price plot will be added once shares list and sufficient history accrues._

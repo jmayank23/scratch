@@ -35,3 +35,11 @@ I'm now an expert on ASML for the last 30 days. Some things you could ask:
 - Is the cyclical-timing worry justified at these levels versus the Bernstein $2,623 target?
 
 I have all the links to the 13 Reddit threads, 7 YouTube videos, 7 HN stories, and Stocktwits posts I pulled from. Just ask.
+
+---
+
+### 5-Year Price
+
+▲ **+125% over 5 years** - adjusted close rose from $758.26 to $1,704.51. Source: Yahoo Finance (daily adjusted close, ~5 years through Aug 2026).
+
+![ASML 5-year adjusted-close price chart](charts/ASML-5y.png)

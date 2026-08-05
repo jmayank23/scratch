@@ -36,3 +36,11 @@ I'm now an expert on Microsoft (MSFT) for the last 30 days. Some things you coul
 - Why is MSFT down ~18% YTD while the sell-side targets sit near $600?
 
 I have all the links to the 21 Reddit threads, 5 YouTube videos, 15 HN stories, and 11 Polymarket markets I pulled from. Just ask.
+
+---
+
+### 5-Year Price
+
+▲ **+76% over 5 years** - adjusted close rose from $277.85 to $488.00. Source: Yahoo Finance (daily adjusted close, ~5 years through Aug 2026).
+
+![MSFT 5-year adjusted-close price chart](charts/MSFT-5y.png)

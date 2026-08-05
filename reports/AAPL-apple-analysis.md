@@ -36,3 +36,11 @@ I'm now an expert on Apple (AAPL) for the last 30 days. Some things you could as
 - Break down the HSBC bull case ($366) versus the ~$318-330 consensus target below the stock.
 
 I have all the links to the 20 Reddit threads, 5 YouTube videos, 12 HN stories, and 12 Polymarket markets I pulled from. Just ask.
+
+---
+
+### 5-Year Price
+
+▲ **+115% over 5 years** - adjusted close rose from $143.35 to $307.97. Source: Yahoo Finance (daily adjusted close, ~5 years through Aug 2026).
+
+![AAPL 5-year adjusted-close price chart](charts/AAPL-5y.png)

@@ -36,3 +36,11 @@ I'm now an expert on Alphabet (GOOG) for the last 30 days. Some things you could
 - Break down the "circular financing" worry - is it real leverage or just narrative?
 
 I have all the links to the 24 Reddit threads, 9 YouTube videos, 9 HN stories, and 3 Polymarket markets I pulled from. Just ask.
+
+---
+
+### 5-Year Price
+
+▲ **+177% over 5 years** - adjusted close rose from $135.74 to $376.20. Source: Yahoo Finance (daily adjusted close, ~5 years through Aug 2026).
+
+![GOOG 5-year adjusted-close price chart](charts/GOOG-5y.png)

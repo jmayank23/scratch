@@ -36,3 +36,11 @@ I'm now an expert on JPMorgan Chase (JPM) for the last 30 days. Some things you 
 - What do tougher H2 investment-banking comps mean for the second half?
 
 I have all the links to the 15 Reddit threads, 4 YouTube videos, 2 HN stories, and 2 Polymarket markets I pulled from. Just ask.
+
+---
+
+### 5-Year Price
+
+▲ **+167% over 5 years** - adjusted close rose from $135.14 to $361.08. Source: Yahoo Finance (daily adjusted close, ~5 years through Aug 2026).
+
+![JPM 5-year adjusted-close price chart](charts/JPM-5y.png)

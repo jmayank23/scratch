@@ -11,6 +11,7 @@ Reports are generated with the open-source [`/last30days`](https://github.com/mv
 3. **Multi-source sweep** - the engine pulls the last 30 days of discussion and engagement from **Reddit** (threads + comments), **YouTube** (videos + transcripts), **Hacker News**, and **Polymarket** prediction-market odds, then ranks the evidence into story clusters.
 4. **Web supplement** - targeted searches add analyst price targets and news/analysis; these are recorded under `## WebSearch Supplemental Results` in each raw file.
 5. **Synthesis** - the ranked evidence is written up as a narrative brief: headline findings, verbatim community voice, prediction-market odds, key patterns, and a source-count footer.
+6. **5-year price chart** - each report closes with a 5-year adjusted-close price chart (real daily data from Yahoo Finance, rendered to [`charts/`](charts/)). Pre-IPO names with no trading history are noted instead of charted.
 
 Each report links to its underlying raw research in [`raw/`](raw/). Recurring cross-cutting themes (for example, the AI-capex debate running through the mega-cap names) are discussed inside the individual reports.
 

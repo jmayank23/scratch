@@ -35,3 +35,11 @@ I'm now an expert on American Express (AXP) for the last 30 days. Some things yo
 - Is ~20.8x earnings too rich, and how real is the Stripe/fintech threat?
 
 I have all the links to the 20 Reddit threads, 4 YouTube videos, and 19 HN stories I pulled from. Just ask.
+
+---
+
+### 5-Year Price
+
+▲ **+119% over 5 years** - adjusted close rose from $159.63 to $349.93. Source: Yahoo Finance (daily adjusted close, ~5 years through Aug 2026).
+
+![AXP 5-year adjusted-close price chart](charts/AXP-5y.png)

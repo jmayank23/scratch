@@ -35,3 +35,11 @@ I'm now an expert on TSMC (TSM) for the last 30 days. Some things you could ask:
 - What do the Arizona expansion and 2027 price hikes signal about pricing power?
 
 I have all the links to the 11 Reddit threads, 5 YouTube videos, and 8 HN stories I pulled from. Just ask.
+
+---
+
+### 5-Year Price
+
+▲ **+283% over 5 years** - adjusted close rose from $109.90 to $421.39. Source: Yahoo Finance (daily adjusted close, ~5 years through Aug 2026).
+
+![TSM 5-year adjusted-close price chart](charts/TSM-5y.png)

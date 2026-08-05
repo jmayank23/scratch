@@ -35,3 +35,11 @@ I'm now an expert on Marvell (MRVL) for the last 30 days. Some things you could 
 - Why is the analyst target range so wide (median ~$250 vs KeyBanc $400)?
 
 I have all the links to the 10 Reddit threads, 2 YouTube videos, and 1 HN story I pulled from. Just ask.
+
+---
+
+### 5-Year Price
+
+▲ **+263% over 5 years** - adjusted close rose from $59.93 to $217.34. Source: Yahoo Finance (daily adjusted close, ~5 years through Aug 2026).
+
+![MRVL 5-year adjusted-close price chart](charts/MRVL-5y.png)
