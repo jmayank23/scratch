@@ -1,28 +1,28 @@
 {
   "BuyHold": {
-    "avg_CAGR": 20.0,
-    "avg_MaxDD": -72.4,
-    "avg_Sharpe": 0.68,
+    "avg_CAGR": 21.9,
+    "avg_MaxDD": -70.3,
+    "avg_Sharpe": 0.72,
     "avg_Vol": 38.9,
-    "median_CAGR": 17.9,
+    "median_CAGR": 18.6,
     "beats_bh_cagr": null
   },
   "SMA200": {
-    "avg_CAGR": 16.1,
-    "avg_MaxDD": -50.8,
-    "avg_Sharpe": 0.65,
-    "avg_Vol": 28.4,
-    "median_CAGR": 14.1,
-    "beats_bh_cagr": "2/10",
-    "better_maxdd": "9/10"
+    "avg_CAGR": 16.7,
+    "avg_MaxDD": -51.9,
+    "avg_Sharpe": 0.66,
+    "avg_Vol": 28.8,
+    "median_CAGR": 14.7,
+    "beats_bh_cagr": "2/11",
+    "better_maxdd": "9/11"
   },
   "TrailStop15": {
-    "avg_CAGR": 16.7,
-    "avg_MaxDD": -59.8,
-    "avg_Sharpe": 0.66,
-    "avg_Vol": 30.8,
-    "median_CAGR": 13.7,
-    "beats_bh_cagr": "1/10",
-    "better_maxdd": "10/10"
+    "avg_CAGR": 17.9,
+    "avg_MaxDD": -57.9,
+    "avg_Sharpe": 0.68,
+    "avg_Vol": 31.0,
+    "median_CAGR": 15.3,
+    "beats_bh_cagr": "1/11",
+    "better_maxdd": "11/11"
   }
 }

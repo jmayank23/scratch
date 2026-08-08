@@ -119,53 +119,65 @@
       "interval_cv": 1.0,
       "ac1_interval": -0.01,
       "ac1_depth": -0.42
+    },
+    "AVGO": {
+      "start": "2009-08-06",
+      "n_corr": 32,
+      "mean_depth": 19.8,
+      "median_depth": 14.3,
+      "max_depth": 48.3,
+      "mean_interval_d": 136.0,
+      "median_interval_d": 92.0,
+      "interval_cv": 0.88,
+      "ac1_interval": 0.16,
+      "ac1_depth": -0.21
     }
   },
   "predictability": {
-    "n_pooled_10pct": 216,
+    "n_pooled_10pct": 248,
     "runup_vs_depth": {
       "r": 0.015,
-      "n": 216,
-      "t": 0.22
+      "n": 248,
+      "t": 0.24
     },
     "ext_above_sma200_vs_depth": {
-      "r": 0.158,
-      "n": 206,
-      "t": 2.28
-    },
-    "vol60_vs_depth": {
-      "r": 0.151,
-      "n": 209,
+      "r": 0.143,
+      "n": 235,
       "t": 2.2
     },
+    "vol60_vs_depth": {
+      "r": 0.137,
+      "n": 240,
+      "t": 2.13
+    },
     "since_last_vs_depth": {
-      "r": -0.064,
-      "n": 206,
-      "t": -0.91
+      "r": -0.056,
+      "n": 237,
+      "t": -0.87
     },
     "multi_reg_depth_R2": {
-      "R2": 0.037,
-      "n": 205
+      "R2": 0.031,
+      "n": 234
     },
     "prev_runup_vs_interval": {
-      "r": -0.05,
-      "n": 206,
+      "r": -0.046,
+      "n": 237,
       "t": -0.71
     },
     "prev_depth_vs_interval": {
-      "r": 0.754,
-      "n": 206,
-      "t": 16.4
+      "r": 0.745,
+      "n": 237,
+      "t": 17.14
     },
     "interval_lag1_autocorr_pooled": {
-      "r": -0.056,
-      "n": 196,
-      "t": -0.78
+      "r": -0.042,
+      "n": 226,
+      "t": -0.63
     },
     "runup_vs_duration": {
-      "r": -0.05,
-      "n": 216,
-      "t": -0.73
+      "r": -0.046,
+      "n": 248,
+      "t": -0.71
     }
   }
 }

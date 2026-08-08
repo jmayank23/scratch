@@ -32,6 +32,7 @@ Each report links to its underlying raw research in [`raw/`](raw/). Recurring cr
 | ASML | ASML Holding | [ASML-asml-analysis.md](ASML-asml-analysis.md) | [raw](raw/asml-stock-raw-v3.md) | 2026-07-29 |
 | MRVL | Marvell Technology | [MRVL-marvell-analysis.md](MRVL-marvell-analysis.md) | [raw](raw/marvell-mrvl-stock-raw-v3.md) | 2026-07-29 |
 | AMD | Advanced Micro Devices | [AMD-amd-analysis.md](AMD-amd-analysis.md) | [raw](raw/amd-stock-raw-v3.md) | 2026-07-30 |
+| AVGO | Broadcom | [AVGO-broadcom-analysis.md](AVGO-broadcom-analysis.md) | [raw](raw/broadcom-avgo-stock-raw-v3.md) | 2026-08-08 |
 
 ### Software & Cloud
 

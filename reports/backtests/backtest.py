@@ -28,7 +28,7 @@ import matplotlib.pyplot as plt
 BASE = "/home/user/scratch/reports/backtests"
 DATA, CHARTS = f"{BASE}/data", f"{BASE}/charts"
 H = {"User-Agent": "Mozilla/5.0"}
-TICKERS = ["GOOG","AAPL","NVDA","MSFT","TSM","ASML","MRVL","AMD","JPM","AXP"]
+TICKERS = ["GOOG","AAPL","NVDA","MSFT","TSM","ASML","MRVL","AMD","JPM","AXP","AVGO"]
 TRADING_DAYS = 252
 
 P1 = int(dt.datetime(2006, 1, 1, tzinfo=dt.timezone.utc).timestamp())
