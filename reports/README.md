@@ -19,7 +19,8 @@ Each report links to its underlying raw research in [`raw/`](raw/). Recurring cr
 
 ## Analysis
 
-- [**Can corrections be predicted? A backtest**](backtests/) - tests whether the timing and depth of drawdowns are predictable across the 10 charted tickers (~20 years of daily data), and backtests three rules-based strategies vs buy-and-hold. Short answer: timing is essentially unpredictable, depth is only weakly so, and trend/stop rules cut drawdowns but usually cost return. Exploratory and in-sample - see its caveats.
+- [**Can corrections be predicted? A backtest**](backtests/) - tests whether the timing and depth of drawdowns are predictable across the 11 charted tickers (~20 years of daily data), and backtests three rules-based strategies vs buy-and-hold. Short answer: timing is essentially unpredictable, depth is only weakly so, and trend/stop rules cut drawdowns but usually cost return. Exploratory and in-sample - see its caveats.
+- [**MSFT technical indicator read**](indicators/MSFT-technical-read.md) - RSI, Money Flow Index divergence, Ichimoku, and DeMark TD Sequential (9) computed on real MSFT daily data, with a read on each. Net: bullish trend, tactically overbought/extended after the post-earnings breakout.
 
 ## Reports by category
 
