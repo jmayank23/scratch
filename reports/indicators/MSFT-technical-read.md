@@ -2,7 +2,7 @@
 
 Four technical indicators computed on real MSFT daily OHLCV (Yahoo Finance, 751 sessions through the latest close of **$503.81**). Context: MSFT fell from ~$490 (Dec 2025) to a ~$353 low in June 2026, then gapped up on late-July earnings and ran near-vertically to ~$504 — read every indicator through that "just broke out and went vertical" lens.
 
-![MSFT indicators: Ichimoku + TD Sequential, RSI, MFI](MSFT-indicators.png)
+![MSFT indicators: Ichimoku + TD Sequential, RSI, MFI](charts/MSFT-indicators.png)
 
 ## RSI(14) — momentum: overbought, confirming
 - **≈ 77.7**, above 70 in 9 of the last 15 sessions.

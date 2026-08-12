@@ -1,0 +1,12 @@
+ticker,close,RSI,MFI,cloud,TK,TDsetup
+GOOG,343.0,46.0,51.0,below,bull,buy4
+AAPL,304.91,42.0,51.0,above,bear,buy2
+NVDA,217.5,58.0,52.0,above,bull,buy1
+MSFT,503.81,78.0,79.0,above,bull,sell11
+TSM,422.06,53.0,46.0,in,bear,sell8
+ASML,1799.38,56.0,41.0,in,bull,sell7
+MRVL,212.31,50.0,49.0,below,bear,sell1
+AMD,474.32,46.0,33.0,in,bear,buy3
+JPM,362.04,66.0,81.0,above,bull,sell6
+AXP,340.81,49.0,51.0,above,bull,buy3
+AVGO,416.08,58.0,48.0,in,bull,buy1
