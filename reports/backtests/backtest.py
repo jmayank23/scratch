@@ -16,7 +16,8 @@ Plus three rules-based strategies backtested vs buy & hold:
 
 All signals use only lagged data (no look-ahead). No transaction costs/taxes
 (sensitivity noted separately). This is exploratory, in-sample, single-path
-analysis on a hand-picked set of large winners -> read the caveats.
+analysis on a hand-picked set of mostly-large-winners (MRNA is the one decliner)
+-> read the caveats.
 """
 import os, json, math, datetime as dt
 import numpy as np
@@ -28,11 +29,11 @@ import matplotlib.pyplot as plt
 BASE = "/home/user/scratch/reports/backtests"
 DATA, CHARTS = f"{BASE}/data", f"{BASE}/charts"
 H = {"User-Agent": "Mozilla/5.0"}
-TICKERS = ["GOOG","AAPL","NVDA","MSFT","TSM","ASML","MRVL","AMD","JPM","AXP","AVGO"]
+TICKERS = ["GOOG","AAPL","NVDA","MSFT","TSM","ASML","MRVL","AMD","JPM","AXP","AVGO","MRNA"]
 TRADING_DAYS = 252
 
 P1 = int(dt.datetime(2006, 1, 1, tzinfo=dt.timezone.utc).timestamp())
-P2 = int(dt.datetime(2026, 8, 6, tzinfo=dt.timezone.utc).timestamp())
+P2 = int(dt.datetime(2026, 8, 21, tzinfo=dt.timezone.utc).timestamp())
 def fetch(sym):
     # period1/period2 forces TRUE DAILY bars; range=max silently downsamples to monthly/quarterly.
     r = requests.get(f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}",

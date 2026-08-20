@@ -19,8 +19,8 @@ Each report links to its underlying raw research in [`raw/`](raw/). Recurring cr
 
 ## Analysis
 
-- [**Can corrections be predicted? A backtest**](backtests/) - tests whether the timing and depth of drawdowns are predictable across the 11 charted tickers (~20 years of daily data), and backtests three rules-based strategies vs buy-and-hold. Short answer: timing is essentially unpredictable, depth is only weakly so, and trend/stop rules cut drawdowns but usually cost return. Exploratory and in-sample - see its caveats.
-- [**Technical indicators — run + backtest across all tickers**](indicators/) - RSI, Money Flow Index divergence, Ichimoku, and DeMark TD Sequential (9) computed for all 11 charted tickers, with per-stock panels, and each indicator **backtested** for edge. Short answer: only RSI-oversold dip-buying shows a real edge, and only on steadier names (TSM, AVGO) - it is a trap on high-beta momentum names (NVDA especially). MFI divergence and TD9 show no standalone edge; Ichimoku is a drawdown tool, not alpha.
+- [**Can corrections be predicted? A backtest**](backtests/) - tests whether the timing and depth of drawdowns are predictable across the 12 charted tickers (~20 years of daily data), and backtests three rules-based strategies vs buy-and-hold. Short answer: timing is essentially unpredictable, depth is only weakly so, and trend/stop rules cut drawdowns but usually cost return. Exploratory and in-sample - see its caveats.
+- [**Technical indicators — run + backtest across all tickers**](indicators/) - RSI, Money Flow Index divergence, Ichimoku, and DeMark TD Sequential (9) computed for all 12 charted tickers, with per-stock panels, and each indicator **backtested** for edge. Short answer: there is no general-purpose edge - RSI-oversold dip-buying works only on steadier names (TSM, AVGO) and is significantly *destructive* on high-beta/collapse-prone ones (MRNA, NVDA), so the pooled edge is ~zero. MFI divergence and TD9 show no standalone edge; Ichimoku is drawdown insurance that only pays on the deepest crashers (MRNA, AMD).
 - [**MSFT technical indicator read**](indicators/MSFT-technical-read.md) - the detailed single-name walkthrough (bullish trend, tactically overbought/extended after the post-earnings breakout).
 
 ## Reports by category
@@ -60,6 +60,12 @@ Each report links to its underlying raw research in [`raw/`](raw/). Recurring cr
 |--------|---------|--------|----------|----------------|
 | JPM | JPMorgan Chase | [JPM-jpmorgan-analysis.md](JPM-jpmorgan-analysis.md) | [raw](raw/jpmorgan-chase-jpm-stock-raw-v3.md) | 2026-08-03 |
 | AXP | American Express | [AXP-american-express-analysis.md](AXP-american-express-analysis.md) | [raw](raw/american-express-axp-stock-raw-v3.md) | 2026-08-03 |
+
+### Biotech & Pharma
+
+| Ticker | Company | Report | Raw data | Analyzed (CST) |
+|--------|---------|--------|----------|----------------|
+| MRNA | Moderna | [MRNA-moderna-analysis.md](MRNA-moderna-analysis.md) | [raw](raw/moderna-mrna-stock-raw-v3.md) | 2026-08-19 |
 
 ### IPOs & New Listings
 

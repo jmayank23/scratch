@@ -5,6 +5,7 @@ for all charted tickers, and BACKTEST each as a signal to see where it has edge.
 
 Data: daily OHLCV (raw) from Yahoo Finance v8 chart API via the agent proxy,
 2006-01 to 2026-08 (~20y; AVGO from its 2009 IPO). RVII excluded (no history).
+MRNA history begins at its Dec-2018 IPO and is the set's one big decliner.
 
 Two kinds of test:
   * Event study (RSI oversold/overbought, MFI bull/bear divergence, TD buy-9/sell-9):
@@ -27,9 +28,9 @@ os.makedirs(DATA,exist_ok=True); os.makedirs(CH,exist_ok=True)
 H={"User-Agent":"Mozilla/5.0"}
 TK=[("GOOG","Alphabet"),("AAPL","Apple"),("NVDA","NVIDIA"),("MSFT","Microsoft"),
     ("TSM","TSMC"),("ASML","ASML"),("MRVL","Marvell"),("AMD","AMD"),
-    ("JPM","JPMorgan"),("AXP","Amex"),("AVGO","Broadcom")]
+    ("JPM","JPMorgan"),("AXP","Amex"),("AVGO","Broadcom"),("MRNA","Moderna")]
 P1=int(dt.datetime(2006,1,1,tzinfo=dt.timezone.utc).timestamp())
-P2=int(dt.datetime(2026,8,12,tzinfo=dt.timezone.utc).timestamp())
+P2=int(dt.datetime(2026,8,21,tzinfo=dt.timezone.utc).timestamp())
 TD_=252
 
 def fetch(sym):
@@ -232,7 +233,7 @@ for r in ich_rows:
     print(f"{r['ticker']}\t{r['BH_CAGR']}/{r['BH_MaxDD']}/{r['BH_Sharpe']}\t{r['ICH_CAGR']}/{r['ICH_MaxDD']}/{r['ICH_Sharpe']}\t{r['ICH_pct']}")
 # aggregate ichimoku
 import statistics as st
-print("\nICH avg: BH CAGR %.1f MaxDD %.1f Sh %.2f | ICH CAGR %.1f MaxDD %.1f Sh %.2f | ICH beat BH Sharpe %d/11, lower DD %d/11"%(
+print("\nICH avg: BH CAGR %.1f MaxDD %.1f Sh %.2f | ICH CAGR %.1f MaxDD %.1f Sh %.2f | ICH beat BH Sharpe %d/N, lower DD %d/N"%(
     st.mean([r['BH_CAGR'] for r in ich_rows]),st.mean([r['BH_MaxDD'] for r in ich_rows]),st.mean([r['BH_Sharpe'] for r in ich_rows]),
     st.mean([r['ICH_CAGR'] for r in ich_rows]),st.mean([r['ICH_MaxDD'] for r in ich_rows]),st.mean([r['ICH_Sharpe'] for r in ich_rows]),
     sum(1 for r in ich_rows if r['ICH_Sharpe']>r['BH_Sharpe']), sum(1 for r in ich_rows if r['ICH_MaxDD']>r['BH_MaxDD'])))

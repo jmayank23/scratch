@@ -1,57 +1,57 @@
 {
   "pooled_20d": {
     "RSI_oversold": {
-      "n": 488,
-      "mean": 2.2,
-      "base": 1.95,
-      "edge": 0.25,
+      "n": 506,
+      "mean": 1.92,
+      "base": 2.01,
+      "edge": -0.1,
       "hit": 62.0,
-      "t_edge": 0.43,
+      "t_edge": -0.17,
       "dir": 1
     },
     "RSI_overbought": {
-      "n": 1267,
-      "mean": 1.97,
-      "base": 1.95,
-      "edge": 0.02,
+      "n": 1302,
+      "mean": 2.06,
+      "base": 2.01,
+      "edge": 0.05,
       "hit": 59.0,
-      "t_edge": 0.07,
+      "t_edge": 0.17,
       "dir": -1
     },
     "MFI_bulldiv": {
-      "n": 434,
-      "mean": 2.07,
-      "base": 1.95,
-      "edge": 0.12,
+      "n": 454,
+      "mean": 2.22,
+      "base": 2.01,
+      "edge": 0.2,
       "hit": 59.0,
-      "t_edge": 0.21,
+      "t_edge": 0.36,
       "dir": 1
     },
     "MFI_beardiv": {
-      "n": 665,
-      "mean": 1.86,
-      "base": 1.95,
-      "edge": -0.09,
+      "n": 683,
+      "mean": 2.19,
+      "base": 2.01,
+      "edge": 0.18,
       "hit": 58.0,
-      "t_edge": -0.23,
+      "t_edge": 0.4,
       "dir": -1
     },
     "TD_buy9": {
-      "n": 572,
-      "mean": 1.74,
-      "base": 1.95,
-      "edge": -0.22,
+      "n": 605,
+      "mean": 1.82,
+      "base": 2.01,
+      "edge": -0.19,
       "hit": 58.0,
-      "t_edge": -0.43,
+      "t_edge": -0.38,
       "dir": 1
     },
     "TD_sell9": {
-      "n": 940,
-      "mean": 1.89,
-      "base": 1.95,
-      "edge": -0.06,
+      "n": 968,
+      "mean": 1.97,
+      "base": 2.01,
+      "edge": -0.05,
       "hit": 60.0,
-      "t_edge": -0.2,
+      "t_edge": -0.15,
       "dir": -1
     }
   }

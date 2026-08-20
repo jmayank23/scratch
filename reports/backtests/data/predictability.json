@@ -15,7 +15,7 @@
     "AAPL": {
       "start": "2006-01-03",
       "n_corr": 32,
-      "mean_depth": 20.1,
+      "mean_depth": 20.2,
       "median_depth": 14.1,
       "max_depth": 60.9,
       "mean_interval_d": 167.0,
@@ -131,53 +131,65 @@
       "interval_cv": 0.88,
       "ac1_interval": 0.16,
       "ac1_depth": -0.21
+    },
+    "MRNA": {
+      "start": "2018-12-07",
+      "n_corr": 14,
+      "mean_depth": 32.7,
+      "median_depth": 28.4,
+      "max_depth": 95.4,
+      "mean_interval_d": 52.0,
+      "median_interval_d": 41.0,
+      "interval_cv": 1.0,
+      "ac1_interval": -0.25,
+      "ac1_depth": -0.26
     }
   },
   "predictability": {
-    "n_pooled_10pct": 248,
+    "n_pooled_10pct": 262,
     "runup_vs_depth": {
-      "r": 0.015,
-      "n": 248,
-      "t": 0.24
+      "r": 0.022,
+      "n": 262,
+      "t": 0.35
     },
     "ext_above_sma200_vs_depth": {
-      "r": 0.143,
-      "n": 235,
-      "t": 2.2
+      "r": 0.244,
+      "n": 245,
+      "t": 3.93
     },
     "vol60_vs_depth": {
-      "r": 0.137,
-      "n": 240,
-      "t": 2.13
+      "r": 0.163,
+      "n": 252,
+      "t": 2.61
     },
     "since_last_vs_depth": {
-      "r": -0.056,
-      "n": 237,
-      "t": -0.87
+      "r": -0.069,
+      "n": 250,
+      "t": -1.1
     },
     "multi_reg_depth_R2": {
-      "R2": 0.031,
-      "n": 234
+      "R2": 0.079,
+      "n": 244
     },
     "prev_runup_vs_interval": {
-      "r": -0.046,
-      "n": 237,
+      "r": -0.045,
+      "n": 250,
       "t": -0.71
     },
     "prev_depth_vs_interval": {
-      "r": 0.745,
-      "n": 237,
-      "t": 17.14
+      "r": 0.723,
+      "n": 250,
+      "t": 16.46
     },
     "interval_lag1_autocorr_pooled": {
-      "r": -0.042,
-      "n": 226,
-      "t": -0.63
+      "r": -0.029,
+      "n": 238,
+      "t": -0.44
     },
     "runup_vs_duration": {
-      "r": -0.046,
-      "n": 248,
-      "t": -0.71
+      "r": -0.031,
+      "n": 262,
+      "t": -0.49
     }
   }
 }
