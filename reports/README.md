@@ -4,7 +4,7 @@ A growing directory of in-depth, single-name stock analyses. Each report capture
 
 ## How these reports are created
 
-Reports are generated with the open-source [`/last30days`](https://github.com/mvanhorn/last30days-skill) research skill (v3.18.4). For each ticker the workflow is:
+Reports are generated with the open-source [`/last30days`](https://github.com/mvanhorn/last30days-skill) research skill (v3.18.4 for runs through 2026-08-19; v3.21.1 thereafter). For each ticker the workflow is:
 
 1. **Pre-research** - web search resolves the relevant communities (subreddits, channels) and the latest news/earnings context for the ticker.
 2. **Query plan** - a small JSON plan of sub-queries (primary + earnings/capex + valuation angles) is handed to the skill's engine.
@@ -19,8 +19,8 @@ Each report links to its underlying raw research in [`raw/`](raw/). Recurring cr
 
 ## Analysis
 
-- [**Can corrections be predicted? A backtest**](backtests/) - tests whether the timing and depth of drawdowns are predictable across the 12 charted tickers (~20 years of daily data), and backtests three rules-based strategies vs buy-and-hold. Short answer: timing is essentially unpredictable, depth is only weakly so, and trend/stop rules cut drawdowns but usually cost return. Exploratory and in-sample - see its caveats.
-- [**Technical indicators — run + backtest across all tickers**](indicators/) - RSI, Money Flow Index divergence, Ichimoku, and DeMark TD Sequential (9) computed for all 12 charted tickers, with per-stock panels, and each indicator **backtested** for edge. Short answer: there is no general-purpose edge - RSI-oversold dip-buying works only on steadier names (TSM, AVGO) and is significantly *destructive* on high-beta/collapse-prone ones (MRNA, NVDA), so the pooled edge is ~zero. MFI divergence and TD9 show no standalone edge; Ichimoku is drawdown insurance that only pays on the deepest crashers (MRNA, AMD).
+- [**Can corrections be predicted? A backtest**](backtests/) - tests whether the timing and depth of drawdowns are predictable across the 13 charted tickers (~20 years of daily data), and backtests three rules-based strategies vs buy-and-hold. Short answer: timing is essentially unpredictable, depth is only weakly so, and trend/stop rules cut drawdowns but usually cost return. Exploratory and in-sample - see its caveats.
+- [**Technical indicators — run + backtest across all tickers**](indicators/) - RSI, Money Flow Index divergence, Ichimoku, and DeMark TD Sequential (9) computed for all 13 charted tickers, with per-stock panels, and each indicator **backtested** for edge. Short answer: there is no general-purpose edge - RSI-oversold dip-buying works only on steadier names (TSM, AVGO) and is significantly *destructive* on high-beta/collapse-prone ones (MRNA, NVDA), so the pooled edge is ~zero. MFI divergence and TD9 show no standalone edge; Ichimoku is drawdown insurance that only pays on the deepest crashers (MRNA, AMD).
 - [**MSFT technical indicator read**](indicators/MSFT-technical-read.md) - the detailed single-name walkthrough (bullish trend, tactically overbought/extended after the post-earnings breakout).
 
 ## Reports by category
@@ -46,7 +46,7 @@ Each report links to its underlying raw research in [`raw/`](raw/). Recurring cr
 
 | Ticker | Company | Report | Raw data | Analyzed (CST) |
 |--------|---------|--------|----------|----------------|
-| GOOG | Alphabet | [GOOG-alphabet-analysis.md](GOOG-alphabet-analysis.md) | [raw](raw/alphabet-goog-stock-raw-v3.md) | 2026-07-29 |
+| GOOG | Alphabet | [GOOG-alphabet-analysis.md](GOOG-alphabet-analysis.md) | [raw](raw/alphabet-goog-stock-raw-v3-2026-08-30.md) | 2026-08-30 |
 
 ### Consumer Electronics
 
@@ -60,6 +60,7 @@ Each report links to its underlying raw research in [`raw/`](raw/). Recurring cr
 |--------|---------|--------|----------|----------------|
 | JPM | JPMorgan Chase | [JPM-jpmorgan-analysis.md](JPM-jpmorgan-analysis.md) | [raw](raw/jpmorgan-chase-jpm-stock-raw-v3.md) | 2026-08-03 |
 | AXP | American Express | [AXP-american-express-analysis.md](AXP-american-express-analysis.md) | [raw](raw/american-express-axp-stock-raw-v3.md) | 2026-08-03 |
+| MA | Mastercard | [MA-mastercard-analysis.md](MA-mastercard-analysis.md) | [raw](raw/mastercard-ma-stock-raw-v3.md) | 2026-08-30 |
 
 ### Biotech & Pharma
 
@@ -80,6 +81,8 @@ _Pre-IPO / newly listed names. These have no trading history or earnings yet, so
 1. Run the skill for the ticker (see the workflow above); it writes a `raw/<company>-<ticker>-stock-raw-v3.md` file.
 2. Save the synthesized brief as `reports/<TICKER>-<company>-analysis.md`.
 3. Add a row to the matching category table below (or create a new `###` category section using the same 5-column format), with the analysis date in CST.
+
+To **refresh** an existing ticker, re-run the skill and overwrite its report, then update the date in its table row. The engine writes a dated raw file when a prior one exists, so earlier windows are preserved (see GOOG).
 
 ## Not financial advice
 

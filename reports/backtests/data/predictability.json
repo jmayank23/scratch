@@ -130,7 +130,7 @@
       "median_interval_d": 92.0,
       "interval_cv": 0.88,
       "ac1_interval": 0.16,
-      "ac1_depth": -0.21
+      "ac1_depth": -0.2
     },
     "MRNA": {
       "start": "2018-12-07",
@@ -143,53 +143,65 @@
       "interval_cv": 1.0,
       "ac1_interval": -0.25,
       "ac1_depth": -0.26
+    },
+    "MA": {
+      "start": "2006-05-25",
+      "n_corr": 23,
+      "mean_depth": 19.7,
+      "median_depth": 16.7,
+      "max_depth": 62.7,
+      "mean_interval_d": 220.0,
+      "median_interval_d": 124.0,
+      "interval_cv": 0.93,
+      "ac1_interval": -0.17,
+      "ac1_depth": -0.02
     }
   },
   "predictability": {
-    "n_pooled_10pct": 262,
+    "n_pooled_10pct": 285,
     "runup_vs_depth": {
-      "r": 0.022,
-      "n": 262,
-      "t": 0.35
+      "r": 0.024,
+      "n": 285,
+      "t": 0.4
     },
     "ext_above_sma200_vs_depth": {
-      "r": 0.244,
-      "n": 245,
-      "t": 3.93
+      "r": 0.252,
+      "n": 265,
+      "t": 4.22
     },
     "vol60_vs_depth": {
       "r": 0.163,
-      "n": 252,
-      "t": 2.61
+      "n": 274,
+      "t": 2.72
     },
     "since_last_vs_depth": {
-      "r": -0.069,
-      "n": 250,
-      "t": -1.1
+      "r": -0.072,
+      "n": 272,
+      "t": -1.18
     },
     "multi_reg_depth_R2": {
-      "R2": 0.079,
-      "n": 244
+      "R2": 0.084,
+      "n": 264
     },
     "prev_runup_vs_interval": {
       "r": -0.045,
-      "n": 250,
-      "t": -0.71
+      "n": 272,
+      "t": -0.74
     },
     "prev_depth_vs_interval": {
-      "r": 0.723,
-      "n": 250,
-      "t": 16.46
+      "r": 0.716,
+      "n": 272,
+      "t": 16.86
     },
     "interval_lag1_autocorr_pooled": {
-      "r": -0.029,
-      "n": 238,
-      "t": -0.44
+      "r": -0.034,
+      "n": 259,
+      "t": -0.54
     },
     "runup_vs_duration": {
       "r": -0.031,
-      "n": 262,
-      "t": -0.49
+      "n": 285,
+      "t": -0.51
     }
   }
 }

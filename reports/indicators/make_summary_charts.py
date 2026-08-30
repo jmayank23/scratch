@@ -5,7 +5,7 @@ import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.colors import TwoSlopeNorm
 BASE="/home/user/scratch/reports/indicators"; DATA=f"{BASE}/data"; CH=f"{BASE}/charts"
-TKS=["GOOG","AAPL","NVDA","MSFT","TSM","ASML","MRVL","AMD","JPM","AXP","AVGO","MRNA"]
+TKS=["GOOG","AAPL","NVDA","MSFT","TSM","ASML","MRVL","AMD","JPM","AXP","AVGO","MRNA","MA"]
 SIGS=["RSI_oversold","RSI_overbought","MFI_bulldiv","MFI_beardiv","TD_buy9","TD_sell9"]
 DIR={"RSI_oversold":1,"RSI_overbought":-1,"MFI_bulldiv":1,"MFI_beardiv":-1,"TD_buy9":1,"TD_sell9":-1}
 LBL={"RSI_oversold":"RSI<30 (buy)","RSI_overbought":"RSI>70 (sell)","MFI_bulldiv":"MFI bull div",

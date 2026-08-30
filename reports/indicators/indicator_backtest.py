@@ -28,9 +28,9 @@ os.makedirs(DATA,exist_ok=True); os.makedirs(CH,exist_ok=True)
 H={"User-Agent":"Mozilla/5.0"}
 TK=[("GOOG","Alphabet"),("AAPL","Apple"),("NVDA","NVIDIA"),("MSFT","Microsoft"),
     ("TSM","TSMC"),("ASML","ASML"),("MRVL","Marvell"),("AMD","AMD"),
-    ("JPM","JPMorgan"),("AXP","Amex"),("AVGO","Broadcom"),("MRNA","Moderna")]
+    ("JPM","JPMorgan"),("AXP","Amex"),("AVGO","Broadcom"),("MRNA","Moderna"),("MA","Mastercard")]
 P1=int(dt.datetime(2006,1,1,tzinfo=dt.timezone.utc).timestamp())
-P2=int(dt.datetime(2026,8,21,tzinfo=dt.timezone.utc).timestamp())
+P2=int(dt.datetime(2026,8,31,tzinfo=dt.timezone.utc).timestamp())
 TD_=252
 
 def fetch(sym):

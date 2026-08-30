@@ -1,19 +1,19 @@
 # Can Corrections Be Predicted? A Backtest
 
-An empirical test of the intuition that these stocks "grow, then correct back to a past level." Two questions, tested on **~20 years of real daily data** (2006-01 to 2026-08, Yahoo Finance) for the **12 charted tickers**, plus **three rules-based strategies** backtested against buy-and-hold.
+An empirical test of the intuition that these stocks "grow, then correct back to a past level." Two questions, tested on **~20 years of real daily data** (2006-01 to 2026-08, Yahoo Finance) for the **13 charted tickers**, plus **three rules-based strategies** backtested against buy-and-hold.
 
-> **Read this first.** These are hand-picked large caps (mostly big winners), tested **in-sample** on a **single historical path**, with **no transaction costs, taxes, or slippage**, and cash assumed to earn **0%**. That combination flatters nothing and proves nothing out-of-sample. Treat this as exploratory data analysis, **not** a validated trading system and **not** investment advice. `RVII` is excluded (no price history). `AVGO` history starts at its 2009 IPO, `MRNA` at its 2018 IPO. MRNA is the one big decliner in the set - a useful counterweight to the winners-only selection bias.
+> **Read this first.** These are hand-picked large caps (mostly big winners), tested **in-sample** on a **single historical path**, with **no transaction costs, taxes, or slippage**, and cash assumed to earn **0%**. That combination flatters nothing and proves nothing out-of-sample. Treat this as exploratory data analysis, **not** a validated trading system and **not** investment advice. `RVII` is excluded (no price history). `AVGO` history starts at its 2009 IPO, `MA` at its 2006 IPO, `MRNA` at its 2018 IPO. MRNA is the one big decliner in the set - a useful counterweight to the winners-only selection bias.
 
 ## TL;DR
 
 1. **The *timing* of corrections is essentially unpredictable.** Gaps between corrections are close to memoryless (lag-1 autocorrelation ≈ **-0.03** pooled; per-ticker all between -0.27 and +0.16) and highly irregular (coefficient of variation 0.7-2.2). Knowing when the last drop happened tells you almost nothing about when the next one comes.
-2. **The *depth* of a drop is barely predictable.** The single most intuitive predictor - how far the stock ran up into the peak - has **r = 0.02** (none). The best hints are "how stretched above the 200-day trend" (**r = 0.24, t 3.9**) and recent volatility (**r = 0.16**) - both strengthened by adding MRNA, whose stretched 2021 peak preceded a 95% collapse. A 4-feature regression still explains only **~8%** of the variance in drop depth. Your best estimate of the next drop is just the stock's own historical median (roughly **13-28%**), and the spread around it is enormous.
+2. **The *depth* of a drop is barely predictable.** The single most intuitive predictor - how far the stock ran up into the peak - has **r = 0.02** (none). The best hints are "how stretched above the 200-day trend" (**r = 0.25, t 4.2**) and recent volatility (**r = 0.16**) - both strengthened by adding MRNA, whose stretched 2021 peak preceded a 95% collapse. A 4-feature regression still explains only **~8%** of the variance in drop depth. Your best estimate of the next drop is just the stock's own historical median (roughly **13-28%**), and the spread around it is enormous.
 3. **One relationship *is* strong - but it's mechanical.** Deeper corrections are followed by longer gaps to the next peak (**r = 0.72**). That's mostly recovery-time arithmetic (a deep hole takes longer to climb out of), not foresight about the next top.
-4. **The strategies cut drawdowns but usually cost return.** A 200-day trend filter shrank the average worst drawdown from **-72%** to **-53%** (lower drawdown in 10/12 names) but beat buy-and-hold on total return in only **3/12**. Risk-adjusted (Sharpe) it was roughly a wash. Crash-avoidance paid off outright only where crashes were deepest (MRNA, AMD, NVDA) - and on MRNA it nearly doubled the CAGR.
+4. **The strategies cut drawdowns but usually cost return.** A 200-day trend filter shrank the average worst drawdown from **-72%** to **-53%** (lower drawdown in 11/13 names) but beat buy-and-hold on total return in only **3/13**. Risk-adjusted (Sharpe) it was roughly a wash. Crash-avoidance paid off outright only where crashes were deepest (MRNA, AMD, NVDA) - and on MRNA it nearly doubled the CAGR.
 
 ## Method
 
-- **Data:** daily adjusted close, 2006-01-03 to 2026-08-20 (~5,190 trading days per ticker; AVGO from its Aug-2009 IPO, MRNA from its Dec-2018 IPO), Yahoo Finance v8 chart API via the agent proxy. Adjusted close folds in splits/dividends.
+- **Data:** daily adjusted close, 2006-01-03 to 2026-08-28 (~5,196 trading days per ticker; MA from its May-2006 IPO, AVGO from its Aug-2009 IPO, MRNA from its Dec-2018 IPO), Yahoo Finance v8 chart API via the agent proxy. Adjusted close folds in splits/dividends.
 - **Correction (drawdown episode):** track the running peak; an episode runs peak → trough → recovery to a new high. Keep episodes whose peak-to-trough decline is **≥ 10%** (a secondary ≥ 20% table is also saved). This is the standard drawdown-episode definition; smaller wobbles inside one underwater stretch merge into the larger episode.
 - **"Delta between corrections":** peak-to-peak spacing, in trading days.
 - **Predictors (measured at the peak, using only prior data - no look-ahead):** run-up from the previous trough, days since the last peak, trailing 60-day annualized volatility, and % extension above the 200-day SMA.
@@ -43,38 +43,39 @@ No. Intervals are irregular and show no memory.
 | AXP | 15 | 19.8% | 83.9% | 153 (~7 mo) | 1.00 | -0.01 |
 | AVGO | 32 | 14.3% | 48.3% | 92 (~4.4 mo) | 0.88 | +0.16 |
 | **MRNA** | 14 | **28.4%** | **95.4%** | **41 (~2 mo)** | 1.00 | -0.25 |
+| MA | 23 | 16.7% | 62.7% | 124 (~6 mo) | 0.93 | -0.17 |
 
-A lag-1 autocorrelation near zero (and pooled **-0.03**, n=238) means "the last gap was long/short" carries essentially no information about the next gap. The pooled test of "does the prior run-up predict time to the next correction" is also null (r = -0.05). The two extremes bracket the set: **AVGO** has the shallowest max drawdown (-48%), the closest thing to a "smooth" compounder, while **MRNA** is the most violent - the deepest median correction (28.4%), a 95.4% max drawdown, and corrections arriving roughly every 2 months (median 41 trading days, less than a third of the group median). Its gaps are still irregular and memoryless like everyone else's.
+A lag-1 autocorrelation near zero (and pooled **-0.03**, n=260) means "the last gap was long/short" carries essentially no information about the next gap. The pooled test of "does the prior run-up predict time to the next correction" is also null (r = -0.05). The two extremes bracket the set: **AVGO** has the shallowest max drawdown (-48%), the closest thing to a "smooth" compounder, while **MRNA** is the most violent - the deepest median correction (28.4%), a 95.4% max drawdown, and corrections arriving roughly every 2 months (median 41 trading days, less than a third of the group median). Its gaps are still irregular and memoryless like everyone else's.
 
 ## Q2 - Is the *size* of the drop predictable?
 
-Weakly - but better than before. Pooled across all 262 corrections:
+Weakly - but better than before. Pooled across all 285 corrections:
 
 | Predictor of drop depth | Pearson r | n | Verdict |
 |-------------------------|----------:|---:|---------|
-| Run-up into the peak | **+0.02** | 262 | none |
-| % extension above 200-day SMA | **+0.24** | 245 | weak-moderate (t 3.9) |
-| Trailing 60-day volatility | +0.16 | 252 | weak (t 2.6) |
-| Days since last correction | -0.07 | 250 | none |
-| **All four (multiple regression R²)** | **0.079** | 244 | ~8% explained |
+| Run-up into the peak | **+0.02** | 285 | none |
+| % extension above 200-day SMA | **+0.25** | 265 | weak-moderate (t 4.2) |
+| Trailing 60-day volatility | +0.16 | 274 | weak (t 2.7) |
+| Days since last correction | -0.07 | 272 | none |
+| **All four (multiple regression R²)** | **0.084** | 264 | ~8% explained |
 
-The most seductive idea - "the more it ran up, the harder it falls" - is still simply not there (r = 0.02, flat line below). The real, if modest, signal is **being stretched far above the 200-day trend**: r = 0.24 (t 3.9), up from 0.14 before MRNA joined. That jump is instructive rather than lucky - MRNA's 2021 peak was extraordinarily extended above trend and was followed by a ~95% drawdown, which is exactly the relationship the predictor claims. Still, ~8% of variance explained means the point estimate for the next drop is dominated by noise.
+The most seductive idea - "the more it ran up, the harder it falls" - is still simply not there (r = 0.02, flat line below). The real, if modest, signal is **being stretched far above the 200-day trend**: r = 0.25 (t 4.2), up from 0.14 before MRNA joined and firming further with Mastercard added. That jump is instructive rather than lucky - MRNA's 2021 peak was extraordinarily extended above trend and was followed by a ~95% drawdown, which is exactly the relationship the predictor claims. Still, ~8% of variance explained means the point estimate for the next drop is dominated by noise.
 
 ![Run-up vs subsequent drawdown depth](charts/predictor_runup_vs_depth.png)
 
 ![Extension above 200-day SMA vs drawdown depth](charts/predictor_extension_vs_depth.png)
 
-**The one strong relationship (and why it's not a crystal ball):** deeper corrections are followed by much longer peak-to-peak gaps (**r = 0.72**, n=250). This is largely mechanical - a 60% drawdown simply takes longer to recover and print a new high than a 12% dip does - so it describes recovery time after the fact, not a way to forecast the *next* top in advance.
+**The one strong relationship (and why it's not a crystal ball):** deeper corrections are followed by much longer peak-to-peak gaps (**r = 0.72**, n=272). This is largely mechanical - a 60% drawdown simply takes longer to recover and print a new high than a 12% dip does - so it describes recovery time after the fact, not a way to forecast the *next* top in advance.
 
 ## The strategies
 
-Averaged over the 12 tickers (~20 years, no costs):
+Averaged over the 13 tickers (~20 years, no costs):
 
 | Strategy | Avg CAGR | Median CAGR | Avg max drawdown | Avg Sharpe | Beat B&H on return | Lower drawdown than B&H |
 |----------|---------:|------------:|-----------------:|-----------:|:------------------:|:-----------------------:|
-| Buy & Hold | 22.8% | 21.1% | -72.4% | 0.71 | - | - |
-| SMA-200 trend | 20.8% | 17.3% | -53.2% | 0.68 | 3/12 | 10/12 |
-| Trailing-stop 15% | 19.6% | 15.1% | -59.6% | 0.68 | 2/12 | 12/12 |
+| Buy & Hold | 22.8% | 23.9% | -71.6% | 0.73 | - | - |
+| SMA-200 trend | 20.3% | 20.2% | -52.7% | 0.69 | 3/13 | 11/13 |
+| Trailing-stop 15% | 19.1% | 15.2% | -59.5% | 0.69 | 2/13 | 13/13 |
 
 ![Average max drawdown vs CAGR by strategy](charts/strategy_maxdd_bar.png)
 
@@ -94,8 +95,9 @@ Per-ticker (CAGR% / max-drawdown%):
 | AXP | 11.3 / -83.9 | 5.9 / -38.6 | 10.3 / -60.8 |
 | AVGO | **40.4 / -48.3** | 22.0 / -63.1 | 28.0 / -38.8 |
 | **MRNA** | 33.9 / **-95.4** | **66.4 / -67.7** | 40.6 / -78.9 |
+| MA | **27.8 / -62.7** | 20.9 / -46.2 | 20.3 / -57.3 |
 
-The pattern is consistent: the trend/stop rules almost always **reduce drawdown** (SMA-200 in 10/12, trailing-stop in 12/12) but usually **give back several points of CAGR** to whipsaws and missed rebounds, so on a risk-adjusted basis they land near buy-and-hold. The exceptions prove the logic - **MRNA**, **AMD**, and **NVDA**, whose buy-and-hold drawdowns were the deepest (-95%, -96% and -85%), are where sidestepping the crash actually improved returns. MRNA is the most dramatic case in the whole study: the SMA-200 filter took its CAGR from 33.9% to **66.4%** while cutting max drawdown from -95.4% to -67.7%, because it sat out most of the post-COVID collapse. And there are now **two** cases where a trend filter made drawdown *worse* - **JPM** (SMA-200 -77.7% vs -68.1%) and **AVGO** (SMA-200 -63.1% vs a buy-and-hold -48.3%) - both whipsaw warnings: a stock that already rides through with a shallow max drawdown gets little protection from a filter that can sell the dip and buy the bounce. **AVGO** is the cleanest buy-and-hold compounder in the set (40.4% CAGR, the shallowest -48% drawdown, Sharpe ~1.1), so the rules mostly just got in its way on return.
+The pattern is consistent: the trend/stop rules almost always **reduce drawdown** (SMA-200 in 11/13, trailing-stop in 13/13) but usually **give back several points of CAGR** to whipsaws and missed rebounds, so on a risk-adjusted basis they land near buy-and-hold. The exceptions prove the logic - **MRNA**, **AMD**, and **NVDA**, whose buy-and-hold drawdowns were the deepest (-95%, -96% and -85%), are where sidestepping the crash actually improved returns. MRNA is the most dramatic case in the whole study: the SMA-200 filter took its CAGR from 33.9% to **66.4%** while cutting max drawdown from -95.4% to -67.7%, because it sat out most of the post-COVID collapse. And there are now **two** cases where a trend filter made drawdown *worse* - **JPM** (SMA-200 -77.7% vs -68.1%) and **AVGO** (SMA-200 -63.1% vs a buy-and-hold -48.3%) - both whipsaw warnings: a stock that already rides through with a shallow max drawdown gets little protection from a filter that can sell the dip and buy the bounce. **AVGO** is the cleanest buy-and-hold compounder in the set (40.4% CAGR, the shallowest -48% drawdown, Sharpe ~1.1), so the rules mostly just got in its way on return.
 
 ![NVDA strategy equity curves](charts/equity_NVDA.png)
 
@@ -109,4 +111,4 @@ The pattern is consistent: the trend/stop rules almost always **reduce drawdown*
 
 ## Caveats (again, because they matter)
 
-Selection bias (12 hand-picked large caps - 11 big winners plus MRNA as the one decliner, better than an all-winners sample but still not representative), in-sample and single-path, no costs/taxes/slippage, cash at 0% (understates the trend strategies, which would have earned T-bill yield while out), pooled tests ignore cross-stock correlation, and many correlations were checked (multiple-comparisons risk). None of this generalizes to out-of-sample trading. **Not investment advice.**
+Selection bias (13 hand-picked large caps - 12 big winners plus MRNA as the one decliner, better than an all-winners sample but still not representative), in-sample and single-path, no costs/taxes/slippage, cash at 0% (understates the trend strategies, which would have earned T-bill yield while out), pooled tests ignore cross-stock correlation, and many correlations were checked (multiple-comparisons risk). None of this generalizes to out-of-sample trading. **Not investment advice.**
