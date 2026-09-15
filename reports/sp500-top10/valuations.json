@@ -1,0 +1,136 @@
+{
+  "as_of": "2026-09-15",
+  "as_of_note": "Figures gathered 2026-09-15 CST from web-search results dated 2026-09-03 to 2026-09-14. No market-data API was reachable from this environment (see README.md), so every number is a sourced secondary reading rather than a direct API pull. Prices and ratios move constantly.",
+  "benchmark": {
+    "sp500_forward_pe": 19.1,
+    "sp500_forward_pe_source": "FactSet Earnings Insight, forward 12-month P/E, early September 2026",
+    "sp500_forward_pe_5y_avg": 19.8,
+    "sp500_forward_pe_10y_avg": 19.0,
+    "sp500_trailing_pe": 25.9,
+    "top10_index_weight_pct": 37.97
+  },
+  "stocks": [
+    {
+      "ticker": "NVDA",
+      "company": "Nvidia",
+      "sector": "Semiconductors",
+      "index_weight_pct": 8.3,
+      "price": 218.29,
+      "market_cap_usd_t": 5.27,
+      "trailing_pe": 27.6,
+      "fwd_pe": 18.1,
+      "confidence": "high",
+      "notes": "Trailing P/E 27.6 is ~48% below its own 10-year median of 52.8. FQ2'27 (quarter ended 2026-07-26) revenue $96.2B, +106% YoY; data centre $89.0B, +117%. Gross margin 75%. Guided FQ3 to $108B. Forward P/E quoted 18.1-25.6 across sources; 18.1 used. Stock -2.8% over the trailing 30 days and up only ~13% in 2026 despite the earnings surge."
+    },
+    {
+      "ticker": "AAPL",
+      "company": "Apple",
+      "sector": "Consumer Electronics",
+      "index_weight_pct": 7.0,
+      "price": 334.09,
+      "market_cap_usd_t": 4.97,
+      "trailing_pe": 36.1,
+      "fwd_pe": 33.4,
+      "confidence": "high",
+      "notes": "Most expensive name in the set on forward earnings, and ~44% above its own 10-year average P/E of 25.1. Revenue growth +14.2% in FQ3'26. Generates ~$123B a year of free cash flow and funds the largest buyback in corporate history. Tim Cook handed the CEO role to John Ternus on 2026-09-01; iPhone 18 Pro and a $1,999 foldable launched 2026-09-09 to a muted share reaction."
+    },
+    {
+      "ticker": "MSFT",
+      "company": "Microsoft",
+      "sector": "Software & Cloud",
+      "index_weight_pct": 5.5,
+      "price": null,
+      "price_note": "Not directly sourced; implied ~$495 from market cap and share count.",
+      "market_cap_usd_t": 3.68,
+      "trailing_pe": 27.6,
+      "fwd_pe": 25.3,
+      "confidence": "high",
+      "notes": "Azure grew 40-43% YoY; commercial backlog $678B, +84% YoY. Revenue growth +17.8%, earnings growth +31.6%. Restructured its OpenAI partnership: revenue share capped at $38B through 2030 and exclusivity as compute provider lost, but OpenAI committed to $250B of additional Azure purchases. Touched $4T market cap earlier in 2026. 2026 AI infrastructure spend ~$190B."
+    },
+    {
+      "ticker": "GOOGL",
+      "company": "Alphabet",
+      "sector": "Internet & Advertising",
+      "index_weight_pct": 5.4,
+      "price": 347.36,
+      "market_cap_usd_t": 4.14,
+      "trailing_pe": 16.8,
+      "fwd_pe": 25.4,
+      "confidence": "medium",
+      "trailing_pe_distorted": true,
+      "notes": "The trailing P/E of 16.8 is an accounting artifact, not a bargain. Q2'26 net income rose 298% to $112.1B, but ~$98B of that was a one-off gain on equity securities (~$77B of it unrealised paper gain). Operating income rose a far more normal 30% to $40.8B on revenue of $119.8B (+24%); Google Cloud grew 82%. Forward P/E quoted 16.4-25.4 across sources - the spread turns on whether the estimate strips the equity gain out; 25.4 used as the more defensible figure. 2026 capex guidance $195-205B. Index weight shown is Class A (GOOGL) only; GOOG is a separate index line, so Alphabet's combined weight is materially higher."
+    },
+    {
+      "ticker": "AMZN",
+      "company": "Amazon",
+      "sector": "Internet & Cloud",
+      "index_weight_pct": 3.8,
+      "price": 256.78,
+      "market_cap_usd_t": 2.73,
+      "trailing_pe": 20.4,
+      "fwd_pe": 24.2,
+      "confidence": "medium",
+      "notes": "One of only two names where the forward P/E is HIGHER than the trailing - the market expects reported profit to fall next year as depreciation from the buildout lands. 2026 capex ~$220B. Revenue growth +15.8% in Q2'26, EPS growth +89%. AWS operating margin ~36-39%. Overall operating margin 12.1%. Trailing P/E readings varied 20.4-24 across sources."
+    },
+    {
+      "ticker": "AVGO",
+      "company": "Broadcom",
+      "sector": "Semiconductors",
+      "index_weight_pct": 2.6,
+      "price": 364.0,
+      "market_cap_usd_t": 1.7,
+      "trailing_pe": 59.5,
+      "fwd_pe": 23.6,
+      "confidence": "medium",
+      "notes": "The widest gap between headline and adjusted earnings in the set. FQ3'26 GAAP diluted EPS $2.68 vs non-GAAP $3.32 - the difference is mostly amortisation of acquired intangibles from its takeover history. That is why the trailing GAAP P/E is ~60 while forward quotes range 18.9-30.7 depending on the earnings definition; 23.6 used. FQ3 revenue $29.6B, +86% YoY; AI semiconductor revenue +221% to $16.7B. Building OpenAI's first in-house accelerator; management guides AI revenue to quadruple from 2026 and non-GAAP EPS to ~$30 by 2028."
+    },
+    {
+      "ticker": "META",
+      "company": "Meta Platforms",
+      "sector": "Internet & Advertising",
+      "index_weight_pct": 1.9,
+      "price": 539.03,
+      "market_cap_usd_t": 1.65,
+      "trailing_pe": 24.3,
+      "fwd_pe": 19.9,
+      "confidence": "high",
+      "notes": "The only one of the ten down year-to-date: -17.1% in 2026. Revenue still grew 26.3% YoY to $51.24B in the quarter, beating estimates, but the shares fell ~10% on the release because 2026 capex guidance was lifted to $130-145B - roughly $30B above what Wall Street expected - alongside a new, untested enterprise AI cloud business. Buybacks halted."
+    },
+    {
+      "ticker": "MU",
+      "company": "Micron Technology",
+      "sector": "Semiconductors",
+      "index_weight_pct": 1.6,
+      "price": 1016.59,
+      "market_cap_usd_t": 1.1,
+      "trailing_pe": 11.7,
+      "fwd_pe": 10.7,
+      "confidence": "medium",
+      "notes": "New entrant to the top ten and the cheapest name in the set on both measures - because memory is a commodity cycle and the market does not capitalise peak earnings. Up 256% in 2026. DRAM contract prices rose 93-98% QoQ in Q1'26 and a further 58-63% in Q2'26. FQ2 revenue guided to ~$18.7B, +132% YoY, EPS ~$8.42; FY26 consensus ~$76B revenue and ~$34 EPS. Management has flagged 'a meaningful moderation in the rate of price increases' ahead. Beta 2.22 - roughly twice as volatile as the market."
+    },
+    {
+      "ticker": "TSLA",
+      "company": "Tesla",
+      "sector": "Automotive",
+      "index_weight_pct": 1.5,
+      "price": 365.44,
+      "market_cap_usd_t": 1.22,
+      "trailing_pe": 301.1,
+      "fwd_pe": 157.9,
+      "confidence": "high",
+      "notes": "By far the most expensive name in the set on every earnings measure - roughly 8x the index on forward earnings, and a forward P/E some 1,259% above the vehicles-and-parts industry median of 11.6. PEG ratio 7.09. Delivered 480,126 vehicles in a quarter and still missed on profit. Shares fell 6% on 2026-09-04 when the Cybercab robotaxi update underwhelmed and NHTSA opened a safety audit query. Capex is at historically normal levels, so free cash flow is positive. Forward P/E quoted 157.9-192.0."
+    },
+    {
+      "ticker": "JPM",
+      "company": "JPMorgan Chase",
+      "sector": "Banks & Financial Services",
+      "index_weight_pct": 1.4,
+      "price": 358.46,
+      "market_cap_usd_t": 0.95,
+      "trailing_pe": 15.3,
+      "fwd_pe": 14.0,
+      "confidence": "high",
+      "notes": "The only non-technology company in the top ten and the only one whose valuation rests on lending rather than AI. Trailing EPS $23.38; 2026 consensus EPS $21.72. P/B 2.33 vs its own 10-year median of 1.58, and P/E 25% above its 10-year median of 12.4 - so cheap against the index, expensive against its own history. ROE 16.1-17.8%. Dividend $6.00/share, yield ~1.69% - the highest in the set. Forward P/E quoted 13.95-14.96."
+    }
+  ]
+}
