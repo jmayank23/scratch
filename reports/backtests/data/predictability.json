@@ -123,14 +123,14 @@
     "AVGO": {
       "start": "2009-08-06",
       "n_corr": 32,
-      "mean_depth": 19.8,
+      "mean_depth": 19.9,
       "median_depth": 14.3,
       "max_depth": 48.3,
       "mean_interval_d": 136.0,
       "median_interval_d": 92.0,
       "interval_cv": 0.88,
       "ac1_interval": 0.16,
-      "ac1_depth": -0.2
+      "ac1_depth": -0.19
     },
     "MRNA": {
       "start": "2018-12-07",
@@ -155,53 +155,65 @@
       "interval_cv": 0.93,
       "ac1_interval": -0.17,
       "ac1_depth": -0.02
+    },
+    "VST": {
+      "start": "2016-10-05",
+      "n_corr": 16,
+      "mean_depth": 23.3,
+      "median_depth": 18.0,
+      "max_depth": 53.3,
+      "mean_interval_d": 150.0,
+      "median_interval_d": 90.0,
+      "interval_cv": 1.1,
+      "ac1_interval": -0.3,
+      "ac1_depth": -0.32
     }
   },
   "predictability": {
-    "n_pooled_10pct": 285,
+    "n_pooled_10pct": 301,
     "runup_vs_depth": {
-      "r": 0.024,
-      "n": 285,
-      "t": 0.4
+      "r": 0.019,
+      "n": 301,
+      "t": 0.33
     },
     "ext_above_sma200_vs_depth": {
-      "r": 0.252,
-      "n": 265,
-      "t": 4.22
+      "r": 0.242,
+      "n": 279,
+      "t": 4.15
     },
     "vol60_vs_depth": {
-      "r": 0.163,
-      "n": 274,
-      "t": 2.72
+      "r": 0.161,
+      "n": 289,
+      "t": 2.77
     },
     "since_last_vs_depth": {
-      "r": -0.072,
-      "n": 272,
-      "t": -1.18
+      "r": -0.079,
+      "n": 287,
+      "t": -1.34
     },
     "multi_reg_depth_R2": {
-      "R2": 0.084,
-      "n": 264
+      "R2": 0.078,
+      "n": 278
     },
     "prev_runup_vs_interval": {
-      "r": -0.045,
-      "n": 272,
-      "t": -0.74
+      "r": -0.046,
+      "n": 287,
+      "t": -0.78
     },
     "prev_depth_vs_interval": {
-      "r": 0.716,
-      "n": 272,
-      "t": 16.86
+      "r": 0.711,
+      "n": 287,
+      "t": 17.06
     },
     "interval_lag1_autocorr_pooled": {
-      "r": -0.034,
-      "n": 259,
-      "t": -0.54
+      "r": -0.036,
+      "n": 273,
+      "t": -0.59
     },
     "runup_vs_duration": {
       "r": -0.031,
-      "n": 285,
-      "t": -0.51
+      "n": 301,
+      "t": -0.54
     }
   }
 }
