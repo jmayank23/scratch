@@ -19,8 +19,8 @@ Each report links to its underlying raw research in [`raw/`](raw/). Recurring cr
 
 ## Analysis
 
-- [**Can corrections be predicted? A backtest**](backtests/) - tests whether the timing and depth of drawdowns are predictable across the 14 charted tickers (~20 years of daily data), and backtests three rules-based strategies vs buy-and-hold. Short answer: timing is essentially unpredictable, depth is only weakly so, and trend/stop rules cut drawdowns but usually cost return - and on fast V-shaped movers (VST) they can make drawdown worse. Exploratory and in-sample - see its caveats.
-- [**Technical indicators — run + backtest across all tickers**](indicators/) - RSI, Money Flow Index divergence, Ichimoku, and DeMark TD Sequential (9) computed for all 14 charted tickers, with per-stock panels, and each indicator **backtested** for edge. Short answer: there is no general-purpose edge - RSI-oversold dip-buying works only on steadier names (TSM, AVGO), is significantly *destructive* on high-beta/collapse-prone ones (MRNA, NVDA), and is a coin-flip on VST, so the pooled edge is ~zero. MFI divergence and TD9 show no standalone edge; Ichimoku is drawdown insurance that only pays on the deepest crashers (MRNA, AMD) and backfires on whipsaw-prone names (JPM, VST).
+- [**Can corrections be predicted? A backtest**](backtests/) - tests whether the timing and depth of drawdowns are predictable across the 16 charted tickers (~20 years of daily data), and backtests three rules-based strategies vs buy-and-hold. Short answer: timing is essentially unpredictable, depth is only weakly so, and trend/stop rules cut drawdowns but usually cost return - they pay only on the deepest crashers (MRNA, AMD, MOD) and on fast V-shaped movers (VST, CEG) they can make drawdown worse. Exploratory and in-sample - see its caveats.
+- [**Technical indicators — run + backtest across all tickers**](indicators/) - RSI, Money Flow Index divergence, Ichimoku, and DeMark TD Sequential (9) computed for all 16 charted tickers, with per-stock panels, and each indicator **backtested** for edge. Short answer: there is no general-purpose edge - RSI-oversold dip-buying works only on steadier names (TSM, AVGO), is significantly *destructive* on high-beta/collapse-prone ones (MRNA, NVDA), and is a coin-flip on VST and MOD, so the pooled edge is ~zero. MFI divergence and TD9 show no standalone edge; Ichimoku is drawdown insurance that only pays on the deepest crashers (MRNA, AMD, MOD) and backfires on whipsaw-prone names (JPM, VST, CEG).
 - [**MSFT technical indicator read**](indicators/MSFT-technical-read.md) - the detailed single-name walkthrough (bullish trend, tactically overbought/extended after the post-earnings breakout).
 
 ## Reports by category
@@ -73,6 +73,13 @@ Each report links to its underlying raw research in [`raw/`](raw/). Recurring cr
 | Ticker | Company | Report | Raw data | Analyzed (CST) |
 |--------|---------|--------|----------|----------------|
 | VST | Vistra | [VST-vistra-analysis.md](VST-vistra-analysis.md) | [raw](raw/vistra-vst-stock-raw-v3.md) | 2026-10-11 |
+| CEG | Constellation Energy | [CEG-constellation-analysis.md](CEG-constellation-analysis.md) | [raw](raw/constellation-energy-ceg-stock-raw-v3.md) | 2026-10-11 |
+
+### Industrials & Data-Center Infrastructure
+
+| Ticker | Company | Report | Raw data | Analyzed (CST) |
+|--------|---------|--------|----------|----------------|
+| MOD | Modine Manufacturing | [MOD-modine-analysis.md](MOD-modine-analysis.md) | [raw](raw/modine-mod-stock-raw-v3.md) | 2026-10-11 |
 
 ### IPOs & New Listings
 
@@ -82,11 +89,19 @@ _Pre-IPO / newly listed names. These have no trading history or earnings yet, so
 |--------|---------|--------|----------|----------------|
 | RVII | Robinhood Ventures Fund II | [RVII-robinhood-ventures-ii-analysis.md](RVII-robinhood-ventures-ii-analysis.md) | [raw](raw/robinhood-ventures-fund-ii-rvii-ipo-raw-v3.md) | 2026-08-03 |
 
+### Thematic ETFs
+
+_Fund comparisons rather than 30-day sentiment runs: holdings, fees, assets and performance are pulled from issuer and fund-data pages plus Yahoo Finance prices, and the funds are compared against each other and against the single names covered above._
+
+| Tickers | Theme | Report | Chart | Analyzed (CST) |
+|---------|-------|--------|-------|----------------|
+| URA, NLR, NUKZ, URNM, URNJ, URAN | Nuclear energy & uranium ETFs | [ETF-nuclear-energy-comparison.md](ETF-nuclear-energy-comparison.md) | [growth of 100](charts/ETF-nuclear-comparison.png) | 2026-10-11 |
+
 ## Adding a new report
 
 1. Run the skill for the ticker (see the workflow above); it writes a `raw/<company>-<ticker>-stock-raw-v3.md` file.
 2. Save the synthesized brief as `reports/<TICKER>-<company>-analysis.md`.
-3. Add a row to the matching category table below (or create a new `###` category section using the same 5-column format), with the analysis date in CST.
+3. Add a row to the matching category table above (or create a new `###` category section using the same 5-column format), with the analysis date in CST. Thematic ETF comparisons go in the **Thematic ETFs** table instead and link a comparison chart rather than a raw engine file.
 
 To **refresh** an existing ticker, re-run the skill and overwrite its report, then update the date in its table row. The engine writes a dated raw file when a prior one exists, so earlier windows are preserved (see GOOG).
 

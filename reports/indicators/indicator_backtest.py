@@ -28,7 +28,7 @@ os.makedirs(DATA,exist_ok=True); os.makedirs(CH,exist_ok=True)
 H={"User-Agent":"Mozilla/5.0"}
 TK=[("GOOG","Alphabet"),("AAPL","Apple"),("NVDA","NVIDIA"),("MSFT","Microsoft"),
     ("TSM","TSMC"),("ASML","ASML"),("MRVL","Marvell"),("AMD","AMD"),
-    ("JPM","JPMorgan"),("AXP","Amex"),("AVGO","Broadcom"),("MRNA","Moderna"),("MA","Mastercard"),("VST","Vistra")]
+    ("JPM","JPMorgan"),("AXP","Amex"),("AVGO","Broadcom"),("MRNA","Moderna"),("MA","Mastercard"),("VST","Vistra"),("CEG","Constellation"),("MOD","Modine")]
 P1=int(dt.datetime(2006,1,1,tzinfo=dt.timezone.utc).timestamp())
 P2=int(dt.datetime(2026,10,12,tzinfo=dt.timezone.utc).timestamp())
 TD_=252
