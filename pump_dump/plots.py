@@ -14,7 +14,7 @@ from .model import model_curves  # noqa: E402
 
 INK, INK2, MUTED, GRID, SURFACE = "#0b0b0b", "#52514e", "#8a8984", "#e6e5e1", "#fcfcfb"
 PRICE, FIT, TREND = "#2a78d6", "#eb6834", "#52514e"
-VERDICT_COLOR = {"SUPPORTS": "#1baf7a", "WEAK": "#eda100", "CONTRADICTS": "#e34948", "NONE": "#8a8984"}
+VERDICT_COLOR = {"SUPPORTS": "#1baf7a", "WEAK": "#eda100", "PARTIAL": "#6250d6", "CONTRADICTS": "#e34948", "NONE": "#8a8984"}
 
 
 def _style(ax):
@@ -81,6 +81,7 @@ def summary_chart(df, path, band):
     from matplotlib.lines import Line2D
     handles = [Line2D([], [], marker="o", ls="", color=VERDICT_COLOR[k], label=lab, markersize=7)
                for k, lab in (("SUPPORTS", "Supports (p < alpha)"), ("WEAK", "Revert shape, not significant"),
+                              ("PARTIAL", "Partial: plateau, or reverted below start"),
                               ("CONTRADICTS", "Contradicts"))]
     ax.legend(handles=handles, frameon=False, fontsize=8, labelcolor=INK2, loc="lower right")
     fig.tight_layout()

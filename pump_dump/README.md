@@ -56,6 +56,7 @@ y(t) = a + b·t                    one straight log-trend line (constant growth 
 |---|---|---|
 | ≈ 1 (within ±0.4) and settle > start | fell back onto the pre-pump trend, above the start price — **the hypothesis** | `pump_revert` |
 | ≈ 1, settle < start | back on trend, but the local trend was falling | `pump_revert_below_start` |
+| ≈ 1, but price fell < 8% from the peak | went sideways until the rising trend caught up — no real dump | `plateau_trend_catchup` |
 | 0.3 – 0.6 | gave back only part of the pump | `partial_revert` |
 | < 0.3 | kept the gains (pump & hold) | `pump_hold` |
 | < 0 | kept rising after the "peak" | `continued_rise` |
@@ -99,6 +100,7 @@ but scramble any longer pattern. The full detector runs on every path.
   stock. **Confidence = 1 − p.**
 * **Verdict:** `SUPPORTS` = `pump_revert` shape and p < α (default 0.10).
   `WEAK` = revert shape, but chance alone does that well.
+  `PARTIAL` = `plateau_trend_catchup` or `pump_revert_below_start`.
   `CONTRADICTS` = some other shape.
 
 ### 4. Cross-sectional test
@@ -113,7 +115,8 @@ stocks is more pump-and-revert than chance:
 
 ### Other outputs per stock
 
-`pump_pct`, `pump_excess_pct` (above trend), `settle_vs_start_pct`,
+`pump_pct`, `pump_excess_pct` (above trend), `peak_to_settle_pct` (the fall from
+the fitted peak to the fitted settle level), `settle_vs_start_pct`,
 `settle_vs_trend_pct`, `settle_vs_pretrend_pct` (an out-of-sample check: the trend
 is fitted **only** on pre-pump data and extrapolated to the settle date),
 `trend_cagr`, `start_date`/`peak_date`/`settle_date`, `pump_days`, `dump_days`.
@@ -124,7 +127,34 @@ is fitted **only** on pre-pump data and extrapolated to the settle date),
 (15%/yr drift; daily vol σ; pump of `h` over 50 days; settles over 100 days) and
 counts how often the detector labels them correctly:
 
-VALIDATION_TABLE
+Measured with 30 trials per cell. A pump of `h` = 0.35 is about 42% above trend;
+`h` = 0.60 is about 82%.
+
+**Shape classified correctly**
+
+| h | daily vol σ | revert | hold | crash | none* |
+|---|---|---:|---:|---:|---:|
+| 0.35 | 1.0% | 57% | 70% | 73% | 0% |
+| 0.35 | 1.5% | 33% | 67% | 70% | 0% |
+| 0.60 | 1.0% | 73% | 93% | 87% | 7% |
+| 0.60 | 1.5% | 47% | 83% | 70% | 0% |
+
+\* "none" = no planted pump. The detector almost always finds some ≥10% bump
+in pure noise, which is why the bootstrap test is needed.
+
+**Final verdict = SUPPORTS** (revert shape AND bootstrap p < 0.10, 100 nulls).
+The `revert` column is the test's power. The other columns are false-positive rates.
+
+| h | daily vol σ | revert | hold | crash | none |
+|---|---|---:|---:|---:|---:|
+| 0.35 | 1.0% | 47% | 23% | 7% | 3% |
+| 0.35 | 1.5% | 13% | 10% | 3% | 10% |
+| 0.60 | 1.0% | 60% | 7% | 0% | 3% |
+| 0.60 | 1.5% | 33% | 13% | 3% | 7% |
+
+On pure noise the SUPPORTS rate stays at or below α = 10%, so the test is
+calibrated. The weak spots are low power on small pumps, and noisy pump-and-hold
+paths that occasionally look like reverts.
 
 **How to read this:**
 

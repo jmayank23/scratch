@@ -164,7 +164,7 @@ def main(argv=None):
 
 
 def print_table(df, agg):
-    cols = ["ticker", "verdict", "shape", "score", "p_value", "r", "pump_excess_pct",
+    cols = ["ticker", "verdict", "shape", "score", "p_value", "r", "pump_excess_pct", "peak_to_settle_pct",
             "settle_vs_trend_pct", "settle_vs_start_pct", "start_date", "peak_date", "settle_date"]
     cols = [c for c in cols if c in df]
     with pd.option_context("display.width", 200, "display.max_rows", 200, "display.float_format", "{:.3f}".format):
@@ -199,16 +199,16 @@ def write_report(df, agg, meta, path):
         "",
         "## Per stock (sorted by signal score)",
         "",
-        "| Ticker | Verdict | Shape | Score | p | r | Pump vs trend | Settle vs trend | Settle vs start | Start -> Peak -> Settle |",
-        "|---|---|---|---:|---:|---:|---:|---:|---:|---|",
+        "| Ticker | Verdict | Shape | Score | p | r | Pump vs trend | Peak -> settle | Settle vs trend | Settle vs start | Start -> Peak -> Settle |",
+        "|---|---|---|---:|---:|---:|---:|---:|---:|---:|---|",
     ]
     for _, s in df.iterrows():
         if not s["has_pump"]:
-            L.append(f"| {s['ticker']} | {s['verdict']} | no_pump | 0 | | | | | | |")
+            L.append(f"| {s['ticker']} | {s['verdict']} | no_pump | 0 | | | | | | | |")
             continue
         L.append(
             f"| [{s['ticker']}](charts/{s['ticker']}.png) | {s['verdict']} | {s['shape']} | {s['score']:.0f} | "
-            f"{s['p_value']:.3f} | {s['r']:.2f} | {_pct(s['pump_excess_pct'])} | {_pct(s['settle_vs_trend_pct'])} | "
+            f"{s['p_value']:.3f} | {s['r']:.2f} | {_pct(s['pump_excess_pct'])} | {_pct(s['peak_to_settle_pct'])} | {_pct(s['settle_vs_trend_pct'])} | "
             f"{_pct(s['settle_vs_start_pct'])} | {s['start_date']} -> {s['peak_date']} -> {s['settle_date']} |")
     L += ["", "See README.md for the method and column definitions.", ""]
     with open(path, "w") as f:

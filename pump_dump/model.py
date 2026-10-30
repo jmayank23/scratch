@@ -50,6 +50,7 @@ class FitConfig:
     select: str = "f"             # episode selection: "f" (F-stat vs plain trend) or "r2" (variance share)
     settle_window: int = 10       # days after t2 used to measure the settle price
     revert_band: float = 0.4      # |r - 1| <= band counts as "reverted to trend"
+    min_drop: float = 0.08        # fitted peak -> settle must fall >= 8%, else it is a plateau, not a dump
 
 
 # ---------------------------------------------------------------- fitting --
@@ -234,6 +235,10 @@ def score_series(y: np.ndarray, cfg: FitConfig, fit=None):
     cb = np.polyfit(tau[pre], y[pre], 1)
     pre_trend_at_settle = float(np.exp(np.polyval(cb, tau[t2])))
 
+    # Price change from the fitted peak to the fitted settle level. r ~ 1 can also arise
+    # when the price merely goes sideways until the rising trend catches up (no dump).
+    model_drop = float(np.exp(fit["b"] * (tau[t2] - tau[t1]) + d - h) - 1)
+
     shape = max(0.0, 1.0 - abs(r - 1.0) / 0.5)      # 1 at perfect reversion, 0 if |r-1| >= 0.5
     magnitude = min(1.0, h / 0.30)                   # saturates at a 30%+ (log) excess pump
     above_start = p_settle > p_start
@@ -248,6 +253,7 @@ def score_series(y: np.ndarray, cfg: FitConfig, fit=None):
         p_start=float(p_start), p_peak=float(p_peak), p_settle=p_settle,
         pump_pct=float(p_peak / p_start - 1),
         pump_excess_pct=float(np.exp(h) - 1),
+        peak_to_settle_pct=model_drop,
         settle_vs_start_pct=float(p_settle / p_start - 1),
         settle_vs_trend_pct=float(p_settle / trend_at_settle - 1),
         settle_vs_pretrend_pct=float(p_settle / pre_trend_at_settle - 1),
@@ -299,6 +305,8 @@ def classify(s: dict, p_value: float, cfg: FitConfig, alpha: float = 0.10):
     r = s["r"]
     if r < 0:
         shape = "continued_rise"
+    elif abs(r - 1) <= cfg.revert_band and s["peak_to_settle_pct"] > -cfg.min_drop:
+        shape = "plateau_trend_catchup"
     elif abs(r - 1) <= cfg.revert_band and s["above_start"]:
         shape = "pump_revert"
     elif abs(r - 1) <= cfg.revert_band:
@@ -309,6 +317,8 @@ def classify(s: dict, p_value: float, cfg: FitConfig, alpha: float = 0.10):
         shape = "crash_below_trend"
     if shape == "pump_revert":
         verdict = "SUPPORTS" if p_value < alpha else "WEAK (not distinguishable from noise)"
+    elif shape in ("plateau_trend_catchup", "pump_revert_below_start"):
+        verdict = "PARTIAL"
     else:
         verdict = "CONTRADICTS"
     return shape, verdict
