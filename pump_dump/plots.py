@@ -75,7 +75,8 @@ def summary_chart(df, path, band):
     ax.scatter(r, ypos, s=20 + 1.6 * d["score"], c=colors, edgecolor=SURFACE, linewidth=2, zorder=3)
     ax.set_yticks(ypos, d["ticker"], fontsize=8, color=INK2)
     ax.set_xlabel("Reversion ratio r = 1 - (settle excess / peak excess)   "
-                  "0 = pump & hold, 1 = back to trend, >1 = below trend", color=INK2, fontsize=9)
+                  "0 = pump & hold, 1 = back to trend, >1 = below trend\n(values outside -1.5 to 3 drawn at the edge)",
+                  color=INK2, fontsize=9)
     ax.set_title("Where each stock's biggest recent pump settled (dot size = signal score)",
                  loc="left", fontsize=11, color=INK)
     from matplotlib.lines import Line2D

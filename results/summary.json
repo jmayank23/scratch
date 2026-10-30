@@ -1,0 +1,65 @@
+{
+  "config": {
+    "recent_days": 504,
+    "pre_window": 252,
+    "post_window": 63,
+    "min_pre_days": 252,
+    "min_post_days": 10,
+    "pump_len": [
+      5,
+      126
+    ],
+    "dump_len": [
+      5,
+      252
+    ],
+    "step": 5,
+    "refine": 5,
+    "min_pump": 0.1,
+    "select": "f",
+    "settle_window": 10,
+    "revert_band": 0.4,
+    "min_drop": 0.08
+  },
+  "args": {
+    "tickers": null,
+    "tickers_file": null,
+    "years": 3.0,
+    "source": "auto",
+    "csv_dir": null,
+    "refresh": false,
+    "vs_market": false,
+    "n_null": 200,
+    "alpha": 0.1,
+    "workers": 4,
+    "min_pump": 0.1,
+    "revert_band": 0.4,
+    "recent_days": 504,
+    "out": "results",
+    "synthetic": false
+  },
+  "aggregate": {
+    "n_stocks": 50,
+    "n_with_pump": 50,
+    "n_in_band": 7,
+    "expected_in_band_by_chance": 5.365,
+    "p_in_band_excess": 0.2861,
+    "n_in_band_significant": 5,
+    "expected_significant_by_chance": 5.0,
+    "p_significant_excess": 0.5759,
+    "n_supports_strict": 2,
+    "n_partial": 4,
+    "median_r": 1.3701332381474498,
+    "in_band_peak_month_counts": {
+      "2024-12": 1,
+      "2025-08": 1,
+      "2025-09": 1,
+      "2025-10": 1,
+      "2026-02": 1,
+      "2026-03": 1,
+      "2026-05": 1
+    }
+  },
+  "data_errors": {},
+  "last_date": "2026-10-29"
+}

@@ -42,25 +42,36 @@ def analyse_one(args):
     return s
 
 
-def aggregate(df: pd.DataFrame, alpha: float, rng=np.random.default_rng(0)):
-    """Is the cross-section of stocks more pump-and-revert than chance?"""
+def aggregate(df: pd.DataFrame, alpha: float, band: float, rng=None):
+    """Is the cross-section of stocks more pump-and-revert than chance?
+
+    Like-for-like: the null revert rate counts |r - 1| <= band, so the observed count
+    does too ("in_band"); the stricter labels are reported alongside. Simulations treat
+    stocks as independent, which overstates significance if episodes share dates.
+    """
+    rng = rng or np.random.default_rng(0)
     n = len(df)
     pumped = df[df["has_pump"]]
-    obs_shape = int((pumped["shape"] == "pump_revert").sum())
+    in_band = (pumped["r"] - 1).abs() <= band
     rates = pumped["null_revert_rate"].fillna(0).to_numpy()
     sims = (rng.random((20000, len(rates))) < rates).sum(1) if len(rates) else np.zeros(1)
-    obs_sig = int((df["verdict"] == "SUPPORTS").sum())
+    sig_band = int((in_band & (pumped["p_value"] < alpha)).sum())
     sims_sig = rng.binomial(n, alpha, 20000)
+    peaks = pd.to_datetime(pumped.loc[in_band, "peak_date"])
     return dict(
         n_stocks=n,
         n_with_pump=int(len(pumped)),
-        n_revert_shape=obs_shape,
-        expected_revert_shape_by_chance=float(rates.sum()),
-        p_revert_shape_excess=float(np.mean(sims >= obs_shape)),
-        n_supports=obs_sig,
-        expected_supports_by_chance_upper=float(alpha * n),
-        p_supports_excess=float(np.mean(sims_sig >= obs_sig)),
+        n_in_band=int(in_band.sum()),
+        expected_in_band_by_chance=float(rates.sum()),
+        p_in_band_excess=float(np.mean(sims >= in_band.sum())),
+        n_in_band_significant=sig_band,
+        expected_significant_by_chance=float(alpha * n),
+        p_significant_excess=float(np.mean(sims_sig >= sig_band)),
+        n_supports_strict=int((df["verdict"] == "SUPPORTS").sum()),
+        n_partial=int((df["verdict"] == "PARTIAL").sum()),
         median_r=float(pumped["r"].median()) if len(pumped) else float("nan"),
+        in_band_peak_month_counts={str(k): int(v) for k, v in
+                                   peaks.dt.to_period("M").value_counts().sort_index().items()},
     )
 
 
@@ -154,7 +165,7 @@ def main(argv=None):
     df = df.sort_values(["score"], ascending=False).reset_index(drop=True)
     df.to_csv(os.path.join(out, "results.csv"), index=False)
     plots.summary_chart(df, os.path.join(out, "summary_reversion.png"), cfg.revert_band)
-    agg = aggregate(df, a.alpha)
+    agg = aggregate(df, a.alpha, cfg.revert_band)
     meta = dict(config=config_dict(cfg), args=vars(a), aggregate=agg, data_errors=errors,
                 last_date=str(max(j[1][-1] for j in jobs).date()))
     with open(os.path.join(out, "summary.json"), "w") as f:
@@ -188,12 +199,16 @@ def write_report(df, agg, meta, path):
         "",
         "## Aggregate",
         "",
-        f"- Stocks analysed: {agg['n_stocks']}; with a pump >= {meta['config']['min_pump']:.0%} (log) above trend: {agg['n_with_pump']}",
-        f"- Revert-to-trend shape: **{agg['n_revert_shape']}** observed vs {agg['expected_revert_shape_by_chance']:.1f} "
-        f"expected from random paths (p = {agg['p_revert_shape_excess']:.3f})",
-        f"- SUPPORTS (revert shape and stock-level p < alpha): **{agg['n_supports']}** vs <= "
-        f"{agg['expected_supports_by_chance_upper']:.1f} by chance (p = {agg['p_supports_excess']:.3f})",
-        f"- Median reversion ratio r among pumped stocks: {agg['median_r']:.2f} (hypothesis predicts ~1)",
+        f"- Stocks analysed: {agg['n_stocks']}; best recent episode found for {agg['n_with_pump']}",
+        f"- Settled within ±{meta['config']['revert_band']} of trend (|r−1| small): **{agg['n_in_band']}** observed vs "
+        f"{agg['expected_in_band_by_chance']:.1f} expected from random paths (p = {agg['p_in_band_excess']:.3f})",
+        f"- ...of which individually significant (p < alpha): **{agg['n_in_band_significant']}** vs "
+        f"{agg['expected_significant_by_chance']:.1f} by chance (p = {agg['p_significant_excess']:.3f})",
+        f"- Strict SUPPORTS (real fall, settled above start, significant): **{agg['n_supports_strict']}**; "
+        f"PARTIAL: {agg['n_partial']}",
+        f"- Median reversion ratio r: {agg['median_r']:.2f} (hypothesis predicts ~1)",
+        f"- Peak months of the in-band episodes: {agg['in_band_peak_month_counts']} "
+        "(clustering = a shared market event, so stocks are not independent tests)",
         "",
         "![summary](summary_reversion.png)",
         "",
