@@ -1,0 +1,7 @@
+ticker,first_real_date,proxy,proxy_from,proxy_to,proxy_trading_days
+VOO,2010-09-09,SPY,2006-11-24,2010-09-08,953
+VXUS,2011-01-28,VGTSX,2006-11-24,2011-01-27,1051
+SCHD,2011-10-20,DVY,2006-11-24,2011-10-19,1235
+QQQ,2006-11-01,,,,0
+IAU,2006-11-01,,,,0
+RSP,2006-11-01,,,,0

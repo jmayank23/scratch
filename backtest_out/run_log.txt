@@ -1,0 +1,73 @@
+==============================================================================
+DATA
+==============================================================================
+Trading days used: 2006-11-24 -> 2026-11-23 (5030 days)
+  VOO   real data from 2010-09-09   | proxy SPY used 2006-11-24 -> 2010-09-08 (953 days)
+  VXUS  real data from 2011-01-28   | proxy VGTSX used 2006-11-24 -> 2011-01-27 (1051 days)
+  SCHD  real data from 2011-10-20   | proxy DVY used 2006-11-24 -> 2011-10-19 (1235 days)
+  QQQ   real data from 2006-11-01
+  IAU   real data from 2006-11-01
+  RSP   real data from 2006-11-01
+
+Buys per schedule: 1043 (one per 7-day block, first block starts Fri 2006-11-24)
+  Mon: first buy 2006-11-27, last buy 2026-11-16
+  Tue: first buy 2006-11-28, last buy 2026-11-17
+  Wed: first buy 2006-11-29, last buy 2026-11-18
+  Thu: first buy 2006-11-30, last buy 2026-11-19
+  Fri: first buy 2006-11-24, last buy 2026-11-13
+All portfolios valued at the close of 2026-11-23
+
+==============================================================================
+RESULTS PER MIX - MONDAY BUYS
+==============================================================================
+          Invested Final value        Gain Multiple    XIRR  Max DD   DD trough     Worst yr      Best yr XIRR/|DD|
+mix                                                                                                                
+2 ETFs    $521,500  $1,940,775  $1,419,275    3.72x  11.78%  -33.6%  2020-03-23  2008 -39.1%  2009 +29.5%     0.351
+3 ETFs    $521,500  $1,866,168  $1,344,668    3.58x  11.46%  -33.3%  2020-03-23  2008 -37.9%  2019 +27.8%     0.344
+4 ETFs    $521,500  $2,266,011  $1,744,511    4.35x  13.07%  -32.6%  2008-11-20  2008 -38.6%  2019 +30.7%     0.400
+5 ETFs    $521,500  $2,078,787  $1,557,287    3.99x  12.35%  -28.1%  2020-03-23  2008 -29.4%  2019 +29.1%     0.440
+6 ETFs    $521,500  $2,037,240  $1,515,740    3.91x  12.19%  -28.6%  2020-03-23  2008 -29.7%  2009 +30.6%     0.427
+Baseline  $521,500  $2,319,256  $1,797,756    4.45x  13.26%  -33.8%  2020-03-23  2008 -36.8%  2013 +32.4%     0.393
+
+Time-weighted max drawdown (new money stripped out), for reference:
+  2 ETFs -56.8%, 3 ETFs -58.5%, 4 ETFs -57.3%, 5 ETFs -43.7%, 6 ETFs -44.0%, Baseline -55.2%
+Years 2006 and 2026 are partial and left out of worst/best year (see calendar_years_monday.csv).
+
+==============================================================================
+XIRR BY BUY WEEKDAY
+==============================================================================
+              Mon      Tue      Wed      Thu      Fri   Best-Worst Best-Worst $ Best/Worst day
+mix                                                                                           
+2 ETFs    11.784%  11.776%  11.777%  11.778%  11.774%  0.010 pp/yr         $645      Mon / Fri
+3 ETFs    11.458%  11.450%  11.451%  11.452%  11.447%  0.011 pp/yr         $854      Mon / Fri
+4 ETFs    13.065%  13.057%  13.057%  13.058%  13.053%  0.012 pp/yr         $911      Mon / Fri
+5 ETFs    12.354%  12.347%  12.346%  12.348%  12.343%  0.011 pp/yr         $746      Mon / Fri
+6 ETFs    12.187%  12.180%  12.179%  12.180%  12.175%  0.011 pp/yr         $860      Mon / Fri
+Baseline  13.256%  13.248%  13.249%  13.251%  13.246%  0.010 pp/yr         $564      Mon / Fri
+
+==============================================================================
+RANDOM BUY DAY TEST (100 runs, one random weekday per week)
+==============================================================================
+         Rand mean Rand std          Rand 5-95%       Weekday range Wkday spread Random 5-pick spread (median / p95)     p
+mix                                                                                                                       
+2 ETFs     11.777%   0.4 bp  11.771% .. 11.784%  11.774% .. 11.784%     0.010 pp                    0.009 / 0.015 pp  0.35
+3 ETFs     11.451%   0.4 bp  11.445% .. 11.458%  11.447% .. 11.458%     0.011 pp                    0.009 / 0.015 pp  0.29
+4 ETFs     13.058%   0.4 bp  13.051% .. 13.064%  13.053% .. 13.065%     0.012 pp                    0.010 / 0.015 pp  0.28
+5 ETFs     12.347%   0.4 bp  12.341% .. 12.352%  12.343% .. 12.354%     0.011 pp                    0.008 / 0.014 pp  0.21
+6 ETFs     12.180%   0.4 bp  12.174% .. 12.185%  12.175% .. 12.187%     0.011 pp                    0.009 / 0.014 pp  0.19
+Baseline   13.249%   0.4 bp  13.243% .. 13.256%  13.246% .. 13.256%     0.010 pp                    0.009 / 0.015 pp  0.38
+p = share of random 5-schedule groups whose best-minus-worst XIRR spread is >= the weekday spread.
+
+==============================================================================
+SUMMARY
+==============================================================================
+  5 ETFs    XIRR 12.35%  max DD -28.1%  -> 0.440 XIRR per unit of DD
+  6 ETFs    XIRR 12.19%  max DD -28.6%  -> 0.427 XIRR per unit of DD
+  4 ETFs    XIRR 13.07%  max DD -32.6%  -> 0.400 XIRR per unit of DD
+  Baseline  XIRR 13.26%  max DD -33.8%  -> 0.393 XIRR per unit of DD
+  2 ETFs    XIRR 11.78%  max DD -33.6%  -> 0.351 XIRR per unit of DD
+  3 ETFs    XIRR 11.46%  max DD -33.3%  -> 0.344 XIRR per unit of DD
+Best return per unit of drawdown: 5 ETFs
+Largest weekday spread: 0.012 pp/yr ($911 on ~$521,500 invested); min p-value vs random days 0.19
+
+CSV and PNG files written to ./backtest_out/
